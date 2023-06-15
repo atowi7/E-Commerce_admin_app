@@ -14,7 +14,7 @@ class CategorieView extends StatelessWidget {
     Get.put(CategorieViewController());
     return Scaffold(
       appBar: AppBar(
-        title: Text('Categories'),
+        title: Text('34'.tr),
       ),
       body: GetBuilder<CategorieViewController>(
         builder: (controller) {
@@ -28,7 +28,7 @@ class CategorieView extends StatelessWidget {
                   itemCount: controller.dataList.length,
                   itemBuilder: (context, i) => InkWell(
                     onTap: () {
-                       controller.goToEdit(controller.dataList[i]);
+                      controller.goToEdit(controller.dataList[i]);
                     },
                     child: Card(
                       child: Row(
@@ -46,25 +46,22 @@ class CategorieView extends StatelessWidget {
                               title: Text('${controller.dataList[i].name}'),
                               subtitle:
                                   Text('${controller.dataList[i].createdAt}'),
-                              trailing: 
-                                  IconButton(
-                                    icon:
-                                        const Icon(Icons.delete_forever_rounded),
-                                    onPressed: () {
-                                      Get.defaultDialog(
-                                        title: 'Warrning',
-                                        middleText: 'Are you sure?',
-                                        onConfirm: () {
-                                          controller.delete(
-                                              controller.dataList[i].id!,
-                                              controller.dataList[i].image!);
-                                          Get.back();
-                                        },
-                                        onCancel: () {},
-                                      );
+                              trailing: IconButton(
+                                icon: const Icon(Icons.delete_forever_rounded),
+                                onPressed: () {
+                                  Get.defaultDialog(
+                                    title: '30'.tr,
+                                    middleText: '31'.tr,
+                                    onConfirm: () {
+                                      controller.delete(
+                                          controller.dataList[i].id!,
+                                          controller.dataList[i].image!);
+                                      Get.back();
                                     },
-                                  ),
-                              
+                                    onCancel: () {},
+                                  );
+                                },
+                              ),
                             ),
                           )
                         ],

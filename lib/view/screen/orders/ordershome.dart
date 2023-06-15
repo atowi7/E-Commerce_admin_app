@@ -1,7 +1,4 @@
-import 'dart:io';
-
 import 'package:ecommerce_admin_app/controller/orderscreen_controller.dart';
-import 'package:ecommerce_admin_app/core/constant/color.dart';
 import 'package:ecommerce_admin_app/view/widget/order/custombottomappbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,7 +12,7 @@ class OrdersHomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Orders'),
+        title: Text('36'.tr),
       ),
       body: GetBuilder<OrderScreenController>(builder: (controller) {
         return Container(

@@ -11,7 +11,7 @@ class SucessSignupScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Sucess'),
+        title:  Text('19'.tr),
       ),
       body: Center(
         child: Column(
@@ -24,15 +24,15 @@ class SucessSignupScreen extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const Text(
-              'Your are verfied',
-              style: TextStyle(fontSize: 30),
+             Text(
+              '20'.tr,
+              style: const TextStyle(fontSize: 30),
             ),
             const SizedBox(
               height: 20,
             ),
             CustomButton(
-                title: 'Go to Login',
+                title: '21'.tr,
                 onPressed: () {
                   Get.offNamed(AppRoute.login);
                 }),

@@ -18,7 +18,7 @@ class OrderAcceptedWedget extends GetView<OrdersAcceptedController> {
           Row(
             children: [
               Text(
-                'Order Number : ${orderModel.ordersId}',
+                '${'46'.tr} : ${orderModel.ordersId}',
                 style: Theme.of(context).textTheme.displayMedium,
               ),
               const Spacer(),
@@ -29,16 +29,16 @@ class OrderAcceptedWedget extends GetView<OrdersAcceptedController> {
             ],
           ),
           const Divider(color: AppColor.blue),
-          Text('Order price : ${orderModel.ordersPrice}'),
-          Text('Order delivery price : ${orderModel.ordersDeliveryprice}\$'),
+          Text('${'47'.tr} : ${orderModel.ordersPrice}'),
+          Text('${'48'.tr} : ${orderModel.ordersDeliveryprice}\$'),
           Text(
-              'Order payment method : ${controller.getPaymentMethod(orderModel.ordersPaymentmethod!)}'),
+              '${'49'.tr} : ${controller.getPaymentMethod(orderModel.ordersPaymentmethod!)}'),
           Text(
-              'Order delivery type : ${controller.getDeliveryType(orderModel.ordersType!)}'),
+              '${'50'.tr} : ${controller.getDeliveryType(orderModel.ordersType!)}'),
           Text(
-              'Order order status : ${controller.getStatus(orderModel.ordersStatus!)}'),
+              '${'51'.tr} : ${controller.getStatus(orderModel.ordersStatus!)}'),
           const Divider(color: AppColor.blue),
-          Text('Order total price : ${orderModel.ordersTotalprice}\$'),
+          Text('${'52'.tr} : ${orderModel.ordersTotalprice}\$'),
           const Divider(color: AppColor.blue),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -50,7 +50,7 @@ class OrderAcceptedWedget extends GetView<OrdersAcceptedController> {
                           orderModel.ordersUserid!, orderModel.ordersType!);
                     },
                     color: AppColor.blue,
-                    child: Text('Done')),
+                    child: Text('83'.tr)),
               MaterialButton(
                   onPressed: () {
                     Get.toNamed(AppRoute.ordersDetails, arguments: {
@@ -58,7 +58,7 @@ class OrderAcceptedWedget extends GetView<OrdersAcceptedController> {
                     });
                   },
                   color: AppColor.blue,
-                  child: Text('Details')),
+                  child: Text('53'.tr)),
             ],
           ),
         ],

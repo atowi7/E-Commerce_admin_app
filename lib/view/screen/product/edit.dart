@@ -15,7 +15,7 @@ class ProductEdit extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(ProductEditController());
     return Scaffold(
-      appBar: AppBar(title: Text('Edit Products')),
+      appBar: AppBar(title: Text('80'.tr)),
       body: GetBuilder<ProductEditController>(builder: (controller) {
         return HandlingDataView(
           statusRequest: controller.statusRequest,
@@ -24,8 +24,8 @@ class ProductEdit extends StatelessWidget {
             child: ListView(
               children: [
                 CustomTextFormGlobal(
-                    labelText: 'Enter product name',
-                    hintText: 'product name',
+                    labelText: '65'.tr,
+                    hintText: '66'.tr,
                     icon: Icons.category,
                     isNumber: false,
                     controller: controller.name,
@@ -33,8 +33,8 @@ class ProductEdit extends StatelessWidget {
                       return inputValidation('', val!, 1, 30);
                     }),
                 CustomTextFormGlobal(
-                    labelText: 'Enter product name (Arabic)',
-                    hintText: 'product name (Arabic)',
+                    labelText: '67'.tr,
+                    hintText: '68'.tr,
                     icon: Icons.category,
                     isNumber: false,
                     controller: controller.nameAr,
@@ -42,8 +42,8 @@ class ProductEdit extends StatelessWidget {
                       return inputValidation('', val!, 1, 30);
                     }),
                 CustomTextFormGlobal(
-                    labelText: 'Enter description name',
-                    hintText: 'Description name',
+                    labelText: '69'.tr,
+                    hintText: '70'.tr,
                     icon: Icons.category,
                     isNumber: false,
                     controller: controller.desc,
@@ -51,8 +51,8 @@ class ProductEdit extends StatelessWidget {
                       return inputValidation('', val!, 1, 100);
                     }),
                 CustomTextFormGlobal(
-                    labelText: 'Enter description name (Arabic)',
-                    hintText: 'Description name (Arabic)',
+                    labelText: '71'.tr,
+                    hintText: '72'.tr,
                     icon: Icons.category,
                     isNumber: false,
                     controller: controller.descAr,
@@ -60,8 +60,8 @@ class ProductEdit extends StatelessWidget {
                       return inputValidation('', val!, 1, 100);
                     }),
                 CustomTextFormGlobal(
-                    labelText: 'Enter count number',
-                    hintText: 'Count number',
+                    labelText: '73'.tr,
+                    hintText: '74'.tr,
                     icon: Icons.category,
                     isNumber: true,
                     controller: controller.count,
@@ -69,8 +69,8 @@ class ProductEdit extends StatelessWidget {
                       return inputValidation('', val!, 1, 30);
                     }),
                 CustomTextFormGlobal(
-                    labelText: 'Enter price',
-                    hintText: 'Price',
+                    labelText: '75'.tr,
+                    hintText: '76'.tr,
                     icon: Icons.category,
                     isNumber: true,
                     controller: controller.price,
@@ -78,8 +78,8 @@ class ProductEdit extends StatelessWidget {
                       return inputValidation('', val!, 1, 30);
                     }),
                 CustomTextFormGlobal(
-                    labelText: 'Enter discount',
-                    hintText: 'discount',
+                    labelText: '77'.tr,
+                    hintText: '78'.tr,
                     icon: Icons.category,
                     isNumber: true,
                     controller: controller.discount,
@@ -87,19 +87,19 @@ class ProductEdit extends StatelessWidget {
                       return inputValidation('', val!, 1, 30);
                     }),
                 CustomDropDownList(
-                    title: 'Choose categorie',
+                    title: '79'.tr,
                     dataList: controller.dropDownList,
                     selectedId: controller.catId,
                     selectedName: controller.catName),
                 RadioListTile(
-                    title: Text('Hidden'),
+                    title: Text('81'.tr),
                     value: '0',
                     groupValue: controller.active,
                     onChanged: (val) {
                       controller.changeActiveStatus(val);
                     }),
                 RadioListTile(
-                    title: Text('Active'),
+                    title: Text('82'.tr),
                     value: '1',
                     groupValue: controller.active,
                     onChanged: (val) {
@@ -112,7 +112,7 @@ class ProductEdit extends StatelessWidget {
                     onPressed: () {
                       controller.chooseImageOptions();
                     },
-                    child: Text('Upload image'),
+                    child: Text('61'.tr),
                   ),
                 ),
                 if (controller.imageFile != null)
@@ -122,7 +122,7 @@ class ProductEdit extends StatelessWidget {
                     width: 100,
                   ),
                 CustomButtonGlobal(
-                    title: 'Save',
+                    title: '29'.tr,
                     onPressed: () {
                       controller.edit();
                     })

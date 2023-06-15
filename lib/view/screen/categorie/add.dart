@@ -15,7 +15,7 @@ class CategorieAdd extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(CategorieAddController());
     return Scaffold(
-      appBar: AppBar(title: Text('Add categories')),
+      appBar: AppBar(title: Text('56'.tr)),
       body: GetBuilder<CategorieAddController>(builder: (controller) {
         return HandlingDataView(
           statusRequest: controller.statusRequest,
@@ -24,8 +24,8 @@ class CategorieAdd extends StatelessWidget {
             child: ListView(
               children: [
                 CustomTextFormGlobal(
-                    labelText: 'Enter category name',
-                    hintText: 'Category name',
+                    labelText: '57'.tr,
+                    hintText: '58'.tr,
                     icon: Icons.category,
                     isNumber: false,
                     controller: controller.name,
@@ -33,8 +33,8 @@ class CategorieAdd extends StatelessWidget {
                       return inputValidation('', val!, 1, 30);
                     }),
                 CustomTextFormGlobal(
-                    labelText: 'Enter category name (Arabic)',
-                    hintText: 'Category name (Arabic)',
+                    labelText: '59'.tr,
+                    hintText: '60'.tr,
                     icon: Icons.category,
                     isNumber: false,
                     controller: controller.nameAr,
@@ -48,13 +48,13 @@ class CategorieAdd extends StatelessWidget {
                     onPressed: () {
                       controller.chooseImage();
                     },
-                    child: Text('Upload image'),
+                    child: Text('61'.tr),
                   ),
                 ),
                 if (controller.imageFile != null)
                   SvgPicture.file(controller.imageFile!),
                 CustomButtonGlobal(
-                    title: 'Add',
+                    title: '62'.tr,
                     onPressed: () {
                       controller.add();
                     })

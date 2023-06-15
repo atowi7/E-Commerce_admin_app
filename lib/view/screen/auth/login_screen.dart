@@ -35,11 +35,11 @@ class LoginScreen extends StatelessWidget {
                 child: ListView(
                   children: [
                     const Logo(),
-                    CustomTextTitle(title: '19'.tr),
-                    CustomTextBody(title: '20'.tr),
+                    CustomTextTitle(title: '10'.tr),
+                    CustomTextBody(title: '11'.tr),
                     CustomTextForm(
-                      labelText: '16'.tr,
-                      hintText: '16'.tr,
+                      labelText: '7'.tr,
+                      hintText: '7'.tr,
                       icon: Icons.email,
                       isNumber: false,
                       controller: controller.email,
@@ -49,8 +49,8 @@ class LoginScreen extends StatelessWidget {
                     ),
                     GetBuilder<LoginController>(builder: (controller) {
                       return CustomTextForm(
-                        labelText: '18'.tr,
-                        hintText: '18'.tr,
+                        labelText: '9'.tr,
+                        hintText: '9'.tr,
                         icon: Icons.lock,
                         isNumber: false,
                         obscureText: controller.isPassHidden,
@@ -65,16 +65,16 @@ class LoginScreen extends StatelessWidget {
                         onTap: () {
                           controller.openForgerPassword();
                         },
-                        child: Text('21'.tr, textAlign: TextAlign.end)),
+                        child: Text('12'.tr, textAlign: TextAlign.end)),
                     CustomButton(
-                      title: '19'.tr,
+                      title: '10'.tr,
                       onPressed: () {
                         controller.login();
                       },
                     ),
                     CustomTextAuth(
-                      t1: '22'.tr,
-                      t2: '13'.tr,
+                      t1: '13'.tr,
+                      t2: '4'.tr,
                       onTap: () {
                         controller.openSignUp();
                       },

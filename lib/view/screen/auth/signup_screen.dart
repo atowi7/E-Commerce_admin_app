@@ -19,7 +19,7 @@ class SignupScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('13'.tr),
+        title: Text('4'.tr),
       ),
       body: WillPopScope(
         onWillPop: () async {
@@ -33,11 +33,11 @@ class SignupScreen extends StatelessWidget {
               key: controller.formKey,
               child: ListView(
                 children: [
-                  CustomTextTitle(title: '13'.tr),
-                  CustomTextBody(title: '14'.tr),
+                  CustomTextTitle(title: '4'.tr),
+                  CustomTextBody(title: '5'.tr),
                   CustomTextForm(
-                    labelText: '15'.tr,
-                    hintText: '15'.tr,
+                    labelText: '6'.tr,
+                    hintText: '6'.tr,
                     icon: Icons.person,
                     isNumber: false,
                     controller: controller.userName,
@@ -47,8 +47,8 @@ class SignupScreen extends StatelessWidget {
                     onTapIcon: controller.showPassword(),
                   ),
                   CustomTextForm(
-                    labelText: '16'.tr,
-                    hintText: '16'.tr,
+                    labelText: '7'.tr,
+                    hintText: '7'.tr,
                     icon: Icons.email,
                     isNumber: false,
                     controller: controller.email,
@@ -57,8 +57,8 @@ class SignupScreen extends StatelessWidget {
                     },
                   ),
                   CustomTextForm(
-                    labelText: '17'.tr,
-                    hintText: '17'.tr,
+                    labelText: '8'.tr,
+                    hintText: '8'.tr,
                     icon: Icons.phone,
                     isNumber: true,
                     controller: controller.phone,
@@ -67,8 +67,8 @@ class SignupScreen extends StatelessWidget {
                     },
                   ),
                   CustomTextForm(
-                    labelText: '18'.tr,
-                    hintText: '18'.tr,
+                    labelText: '9'.tr,
+                    hintText: '9'.tr,
                     icon: Icons.lock,
                     isNumber: false,
                     controller: controller.password,
@@ -78,14 +78,14 @@ class SignupScreen extends StatelessWidget {
                     },
                   ),
                   CustomButton(
-                    title: '13'.tr,
+                    title: '4'.tr,
                     onPressed: () {
                       controller.openSignupVerfication();
                     },
                   ),
                   CustomTextAuth(
-                    t1: '23'.tr,
-                    t2: '19'.tr,
+                    t1: '14'.tr,
+                    t2: '10'.tr,
                     onTap: () {
                       controller.openLogin();
                     },

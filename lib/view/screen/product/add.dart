@@ -1,4 +1,3 @@
-import 'package:drop_down_list/model/selected_list_item.dart';
 import 'package:ecommerce_admin_app/controller/product/add_controller.dart';
 import 'package:ecommerce_admin_app/core/constant/color.dart';
 import 'package:ecommerce_admin_app/core/function/input_validation.dart';
@@ -7,7 +6,6 @@ import 'package:ecommerce_admin_app/core/shared/customdropdownlist.dart';
 import 'package:ecommerce_admin_app/core/shared/customtextformglobal.dart';
 import 'package:ecommerce_admin_app/core/class/handlingdataview.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class ProductAdd extends StatelessWidget {
@@ -17,7 +15,7 @@ class ProductAdd extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(ProductAddController());
     return Scaffold(
-      appBar: AppBar(title: Text('Add Products')),
+      appBar: AppBar(title: Text('64'.tr)),
       body: GetBuilder<ProductAddController>(builder: (controller) {
         return HandlingDataView(
           statusRequest: controller.statusRequest,
@@ -26,8 +24,8 @@ class ProductAdd extends StatelessWidget {
             child: ListView(
               children: [
                 CustomTextFormGlobal(
-                    labelText: 'Enter product name',
-                    hintText: 'Product name',
+                    labelText: '65'.tr,
+                    hintText: '66'.tr,
                     icon: Icons.category,
                     isNumber: false,
                     controller: controller.name,
@@ -35,8 +33,8 @@ class ProductAdd extends StatelessWidget {
                       return inputValidation('', val!, 1, 30);
                     }),
                 CustomTextFormGlobal(
-                    labelText: 'Enter product name (Arabic)',
-                    hintText: 'Product name (Arabic)',
+                    labelText: '67'.tr,
+                    hintText: '68'.tr,
                     icon: Icons.category,
                     isNumber: false,
                     controller: controller.nameAr,
@@ -44,8 +42,8 @@ class ProductAdd extends StatelessWidget {
                       return inputValidation('', val!, 1, 30);
                     }),
                 CustomTextFormGlobal(
-                    labelText: 'Enter description name',
-                    hintText: 'Description name',
+                    labelText: '69'.tr,
+                    hintText: '70'.tr,
                     icon: Icons.category,
                     isNumber: false,
                     controller: controller.desc,
@@ -53,8 +51,8 @@ class ProductAdd extends StatelessWidget {
                       return inputValidation('', val!, 1, 100);
                     }),
                 CustomTextFormGlobal(
-                    labelText: 'Enter description name (Arabic)',
-                    hintText: 'Description name (Arabic)',
+                    labelText: '71'.tr,
+                    hintText: '72'.tr,
                     icon: Icons.category,
                     isNumber: false,
                     controller: controller.descAr,
@@ -62,8 +60,8 @@ class ProductAdd extends StatelessWidget {
                       return inputValidation('', val!, 1, 100);
                     }),
                 CustomTextFormGlobal(
-                    labelText: 'Enter count number',
-                    hintText: 'Count number',
+                    labelText: '73'.tr,
+                    hintText: '74'.tr,
                     icon: Icons.category,
                     isNumber: true,
                     controller: controller.count,
@@ -71,8 +69,8 @@ class ProductAdd extends StatelessWidget {
                       return inputValidation('', val!, 1, 30);
                     }),
                 CustomTextFormGlobal(
-                    labelText: 'Enter price',
-                    hintText: 'Price',
+                    labelText: '75'.tr,
+                    hintText: '76'.tr,
                     icon: Icons.category,
                     isNumber: true,
                     controller: controller.price,
@@ -80,8 +78,8 @@ class ProductAdd extends StatelessWidget {
                       return inputValidation('', val!, 1, 30);
                     }),
                 CustomTextFormGlobal(
-                    labelText: 'Enter discount',
-                    hintText: 'discount',
+                    labelText: '77'.tr,
+                    hintText: '78'.tr,
                     icon: Icons.category,
                     isNumber: true,
                     controller: controller.discount,
@@ -89,7 +87,7 @@ class ProductAdd extends StatelessWidget {
                       return inputValidation('', val!, 1, 30);
                     }),
                 CustomDropDownList(
-                    title: 'Choose categorie',
+                    title: '79'.tr,
                     dataList: controller.dropDownList,
                     selectedId: controller.catId,
                     selectedName: controller.catName),
@@ -100,7 +98,7 @@ class ProductAdd extends StatelessWidget {
                     onPressed: () {
                       controller.chooseImageOptions();
                     },
-                    child: Text('Upload image'),
+                    child: Text('61'.tr),
                   ),
                 ),
                 if (controller.imageFile != null)
@@ -110,7 +108,7 @@ class ProductAdd extends StatelessWidget {
                     width: 100,
                   ),
                 CustomButtonGlobal(
-                    title: 'Add',
+                    title: '62'.tr,
                     onPressed: () {
                       controller.add();
                     })

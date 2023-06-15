@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
     HomeScreenController homeController = Get.put(HomeScreenController());
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: Text('32'.tr),
       ),
       body: ListView(
         children: [
@@ -26,31 +26,27 @@ class HomeScreen extends StatelessWidget {
               mainAxisExtent: 100,
             ),
             children: [
-              AdminCard(image: ImageAssets.logo, title: 'Users', onTap: () {}),
+              AdminCard(image: ImageAssets.logo, title: '33'.tr, onTap: () {}),
               AdminCard(
                   image: ImageAssets.logo,
-                  title: 'Categories',
+                  title: '34'.tr,
                   onTap: () {
                     Get.toNamed(AppRoute.categorieView);
                   }),
               AdminCard(
                   image: ImageAssets.logo,
-                  title: 'Profucts',
+                  title: '35'.tr,
                   onTap: () {
                     Get.toNamed(AppRoute.productView);
                   }),
               AdminCard(
                   image: ImageAssets.logo,
-                  title: 'Orders',
+                  title: '36'.tr,
                   onTap: () {
                     Get.toNamed(AppRoute.ordersHome);
                   }),
-              AdminCard(
-                  image: ImageAssets.logo, title: 'Messages', onTap: () {}),
-              AdminCard(
-                  image: ImageAssets.logo,
-                  title: 'Notifications',
-                  onTap: () {}),
+              AdminCard(image: ImageAssets.logo, title: '37'.tr, onTap: () {}),
+              AdminCard(image: ImageAssets.logo, title: '38'.tr, onTap: () {}),
             ],
           )
         ],

@@ -14,7 +14,7 @@ class ProductView extends StatelessWidget {
     Get.put(ProductViewController());
     return Scaffold(
       appBar: AppBar(
-        title: Text('Products'),
+        title: Text('35'.tr),
       ),
       body: GetBuilder<ProductViewController>(
         builder: (controller) {
@@ -50,8 +50,8 @@ class ProductView extends StatelessWidget {
                                 icon: const Icon(Icons.delete_forever_rounded),
                                 onPressed: () {
                                   Get.defaultDialog(
-                                    title: 'Warrning',
-                                    middleText: 'Are you sure?',
+                                    title: '30'.tr,
+                                    middleText: '31'.tr,
                                     onConfirm: () {
                                       controller.delete(
                                           controller.dataList[i].id!,
