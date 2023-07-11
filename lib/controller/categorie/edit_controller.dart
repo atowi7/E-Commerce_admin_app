@@ -6,7 +6,7 @@ import 'package:ecommerce_admin_app/core/constant/route.dart';
 import 'package:ecommerce_admin_app/core/function/handle_data.dart';
 import 'package:ecommerce_admin_app/core/function/uploadfile.dart';
 import 'package:ecommerce_admin_app/core/service/services.dart';
-import 'package:ecommerce_admin_app/data/datasource/remote/categorie_date.dart';
+import 'package:ecommerce_admin_app/data/datasource/remote/categorie_data.dart';
 import 'package:ecommerce_admin_app/data/model/categoriemodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,7 +19,7 @@ abstract class BaseCategorieEditController extends GetxController {
 class CategorieEditController extends BaseCategorieEditController {
   AppServices appServices = Get.find();
 
-  CategorieDate categorieDate = CategorieDate(Get.find());
+  CategorieData categorieData = CategorieData(Get.find());
 
   CategorieModel? categorieModel;
 
@@ -57,7 +57,7 @@ class CategorieEditController extends BaseCategorieEditController {
         'oldimagename': categorieModel!.image!,
       };
 
-      var response = await categorieDate.editData(data, imageFile);
+      var response = await categorieData.editData(data, imageFile);
 
       statusRequest = handleData(response);
 
@@ -66,10 +66,13 @@ class CategorieEditController extends BaseCategorieEditController {
           Get.offNamed(AppRoute.categorieView);
           CategorieViewController controller = Get.find();
           controller.view();
+          Get.snackbar('30'.tr, '90'.tr,duration: const Duration(seconds: 2));
         } else {
+          Get.snackbar('30'.tr, '91'.tr,duration: const Duration(seconds: 2));
           statusRequest = StatusRequest.noDatafailure;
         }
       } else {
+        Get.snackbar('88'.tr, '89'.tr,duration: const Duration(seconds: 2));
         statusRequest = StatusRequest.serverFailure;
       }
       update();

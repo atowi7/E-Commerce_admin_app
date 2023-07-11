@@ -33,11 +33,11 @@ class VerifycodeController extends BaseVerifycodeController {
       if (response['status'] == 'sucess') {
         Get.offNamed(AppRoute.resetPassword, arguments: {'email': email});
       } else {
-        Get.defaultDialog(title: 'ERROR', middleText: 'VERIFY CODE ERROR');
+        Get.defaultDialog(title: '88'.tr, middleText: '97'.tr);
         //statusRequest = StatusRequest.noDatafailure;
       }
     } else {
-      Get.defaultDialog(title: 'ERROR', middleText: 'SERVER ERROR');
+      Get.defaultDialog(title: '88'.tr, middleText: '89'.tr);
       statusRequest = StatusRequest.serverFailure;
     }
 

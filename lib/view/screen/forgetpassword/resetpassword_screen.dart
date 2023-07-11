@@ -16,8 +16,9 @@ class ResetPasswordScreen extends StatelessWidget {
     Get.put(ResetPasswordController());
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        title: const Text('Reset Password'),
+        title: Text(
+          '26'.tr,
+        ),
       ),
       body: GetBuilder<ResetPasswordController>(builder: (controller) {
         return HandlingDataReqest(
@@ -27,13 +28,13 @@ class ResetPasswordScreen extends StatelessWidget {
             child: ListView(
               children: [
                 const Logo(),
-                const CustomTextTitle(title: 'Change Password'),
+                CustomTextTitle(title: '27'.tr),
                 // const CustomTextBody(
                 //     title:
                 //         'Sign in with your email and password or continue with socail media'),
                 CustomTextForm(
-                  labelText: 'Password',
-                  hintText: 'Password',
+                  labelText: '9'.tr,
+                  hintText: '9'.tr,
                   isNumber: false,
                   obscureText: controller.isPassHidden,
                   icon: Icons.lock,
@@ -44,8 +45,8 @@ class ResetPasswordScreen extends StatelessWidget {
                   onTapIcon: controller.showPassword(),
                 ),
                 CustomTextForm(
-                  labelText: 'RePassword',
-                  hintText: 'RePassword',
+                  labelText: '28'.tr,
+                  hintText: '28'.tr,
                   icon: Icons.lock,
                   isNumber: false,
                   obscureText: controller.isPassHidden,
@@ -57,7 +58,7 @@ class ResetPasswordScreen extends StatelessWidget {
                 ),
 
                 CustomButton(
-                  title: 'save',
+                  title: '29'.tr,
                   onPressed: () {
                     controller.openSucess();
                   },

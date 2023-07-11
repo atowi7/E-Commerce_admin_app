@@ -14,7 +14,7 @@ abstract class BaseProductViewController extends GetxController {
 }
 
 class ProductViewController extends BaseProductViewController {
-  List<ProductModel> dataList = [];
+  List<ProductModel> productList = [];
   AppServices appServices = Get.find();
 
   ProductDate productDate = ProductDate(Get.find());
@@ -37,8 +37,8 @@ class ProductViewController extends BaseProductViewController {
     if (StatusRequest.sucess == statusRequest) {
       if (response['status'] == 'sucess') {
         List data = response['data'];
-        dataList.clear();
-        dataList.addAll(data.map((e) => ProductModel.fromJson(e)));
+        productList.clear();
+        productList.addAll(data.map((e) => ProductModel.fromJson(e)));
       } else {
         statusRequest = StatusRequest.noDatafailure;
       }
@@ -76,11 +76,11 @@ class ProductViewController extends BaseProductViewController {
 
     if (StatusRequest.sucess == statusRequest) {
       if (response['status'] == 'sucess') {
-        dataList.removeWhere((element) => element.id == id);
+        productList.removeWhere((element) => element.id == id);
         update();
-        Get.snackbar('NOTFY', 'delete from Product sucess');
+        Get.snackbar('NOTFY', '130'.tr, duration: const Duration(seconds: 2));
       } else {
-        statusRequest = StatusRequest.noDatafailure;
+        Get.snackbar('NOTFY', '131'.tr, duration: const Duration(seconds: 2));
       }
     } else {
       statusRequest = StatusRequest.serverFailure;

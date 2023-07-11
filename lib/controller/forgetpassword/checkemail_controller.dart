@@ -37,15 +37,15 @@ class CheckEmailController extends BaseCheckEmailController {
         if (response['status'] == 'sucess') {
           Get.offNamed(AppRoute.verfication, arguments: {'email': email.text});
         } else {
-          Get.defaultDialog(title: 'ERROR', middleText: 'EMAIL DOES NOT EXIST');
+          Get.defaultDialog(title: '88'.tr, middleText: '94'.tr);
           //statusRequest = StatusRequest.noDatafailure;
         }
       } else {
-        Get.defaultDialog(title: 'ERROR', middleText: 'SERVER ERROR');
+        Get.defaultDialog(title: '88'.tr, middleText: '89'.tr);
         statusRequest = StatusRequest.serverFailure;
       }
     } else {
-      Get.defaultDialog(title: 'ERROR', middleText: 'VALIDATION ERROR');
+      Get.defaultDialog(title: '88'.tr, middleText: '95'.tr);
     }
     update();
   }

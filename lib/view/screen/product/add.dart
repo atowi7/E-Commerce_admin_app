@@ -26,7 +26,7 @@ class ProductAdd extends StatelessWidget {
                 CustomTextFormGlobal(
                     labelText: '65'.tr,
                     hintText: '66'.tr,
-                    icon: Icons.category,
+                    icon: Icons.inventory_2_rounded,
                     isNumber: false,
                     controller: controller.name,
                     validator: (val) {
@@ -35,7 +35,7 @@ class ProductAdd extends StatelessWidget {
                 CustomTextFormGlobal(
                     labelText: '67'.tr,
                     hintText: '68'.tr,
-                    icon: Icons.category,
+                    icon: Icons.inventory_2_rounded,
                     isNumber: false,
                     controller: controller.nameAr,
                     validator: (val) {
@@ -44,7 +44,7 @@ class ProductAdd extends StatelessWidget {
                 CustomTextFormGlobal(
                     labelText: '69'.tr,
                     hintText: '70'.tr,
-                    icon: Icons.category,
+                    icon: Icons.inventory_2_rounded,
                     isNumber: false,
                     controller: controller.desc,
                     validator: (val) {
@@ -53,7 +53,7 @@ class ProductAdd extends StatelessWidget {
                 CustomTextFormGlobal(
                     labelText: '71'.tr,
                     hintText: '72'.tr,
-                    icon: Icons.category,
+                    icon: Icons.inventory_2_rounded,
                     isNumber: false,
                     controller: controller.descAr,
                     validator: (val) {
@@ -62,7 +62,7 @@ class ProductAdd extends StatelessWidget {
                 CustomTextFormGlobal(
                     labelText: '73'.tr,
                     hintText: '74'.tr,
-                    icon: Icons.category,
+                    icon: Icons.inventory_2_rounded,
                     isNumber: true,
                     controller: controller.count,
                     validator: (val) {
@@ -71,7 +71,7 @@ class ProductAdd extends StatelessWidget {
                 CustomTextFormGlobal(
                     labelText: '75'.tr,
                     hintText: '76'.tr,
-                    icon: Icons.category,
+                    icon: Icons.inventory_2_rounded,
                     isNumber: true,
                     controller: controller.price,
                     validator: (val) {
@@ -80,25 +80,35 @@ class ProductAdd extends StatelessWidget {
                 CustomTextFormGlobal(
                     labelText: '77'.tr,
                     hintText: '78'.tr,
-                    icon: Icons.category,
+                    icon: Icons.inventory_2_rounded,
                     isNumber: true,
                     controller: controller.discount,
                     validator: (val) {
                       return inputValidation('', val!, 1, 30);
                     }),
                 CustomDropDownList(
-                    title: '79'.tr,
-                    dataList: controller.dropDownList,
-                    selectedId: controller.catId,
-                    selectedName: controller.catName),
+                  context: context,
+                  title: '79'.tr,
+                  dataList: controller.dropDownList,
+                  selectedId: controller.catId,
+                  selectedName: controller.catName,
+                  icon: Icons.category,
+                ),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  margin:
+                      EdgeInsets.symmetric(horizontal: Get.size.width * 0.3),
+                  decoration: BoxDecoration(
+                      color: AppColor.primaryColor,
+                      borderRadius: BorderRadius.circular(25)),
                   child: MaterialButton(
-                    color: AppColor.blue,
+                    splashColor: AppColor.secondaryColor,
                     onPressed: () {
-                      controller.chooseImageOptions();
+                      controller.chooseImageOptions(context);
                     },
-                    child: Text('61'.tr),
+                    child: Text(
+                      '61'.tr,
+                      style: Theme.of(context).textTheme.labelMedium,
+                    ),
                   ),
                 ),
                 if (controller.imageFile != null)

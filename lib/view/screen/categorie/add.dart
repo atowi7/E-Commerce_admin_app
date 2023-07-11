@@ -15,7 +15,10 @@ class CategorieAdd extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(CategorieAddController());
     return Scaffold(
-      appBar: AppBar(title: Text('56'.tr)),
+      appBar: AppBar(
+          title: Text(
+        '56'.tr,
+      )),
       body: GetBuilder<CategorieAddController>(builder: (controller) {
         return HandlingDataView(
           statusRequest: controller.statusRequest,
@@ -42,13 +45,20 @@ class CategorieAdd extends StatelessWidget {
                       return inputValidation('', val!, 1, 30);
                     }),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  margin:
+                      EdgeInsets.symmetric(horizontal: Get.size.width * 0.3),
+                  decoration: BoxDecoration(
+                      color: AppColor.primaryColor,
+                      borderRadius: BorderRadius.circular(25)),
                   child: MaterialButton(
-                    color: AppColor.blue,
                     onPressed: () {
                       controller.chooseImage();
                     },
-                    child: Text('61'.tr),
+                    splashColor: AppColor.secondaryColor,
+                    child: Text(
+                      '61'.tr,
+                      style: Theme.of(context).textTheme.labelMedium,
+                    ),
                   ),
                 ),
                 if (controller.imageFile != null)

@@ -3,19 +3,18 @@ import 'dart:io';
 import 'package:ecommerce_admin_app/core/class/crud.dart';
 import 'package:ecommerce_admin_app/core/constant/applink.dart';
 
-class CategorieDate {
+class UserData {
   Crud crud;
 
-  CategorieDate(this.crud);
+  UserData(this.crud);
 
   getData() async {
-    var response = await crud.postData(AppLink.categorieView, {});
+    var response = await crud.postData(AppLink.userView, {});
     return response.fold((l) => l, (r) => r);
   }
 
   addData(Map data, File file) async {
-    var response =
-        await crud.postDataWithImage(AppLink.categorieAdd, data, file);
+    var response = await crud.postDataWithImage(AppLink.userAdd, data, file);
     return response.fold((l) => l, (r) => r);
   }
 
@@ -23,7 +22,7 @@ class CategorieDate {
     var response;
 
     if (file == null) {
-      response = await crud.postData(AppLink.categorieEdit, data);
+      response = await crud.postData(AppLink.userEdit, data);
     } else {
       response =
           await crud.postDataWithImage(AppLink.categorieEdit, data, file);
@@ -32,7 +31,7 @@ class CategorieDate {
   }
 
   deleteData(Map data) async {
-    var response = await crud.postData(AppLink.categorieDelete, data);
+    var response = await crud.postData(AppLink.userDelete, data);
     return response.fold((l) => l, (r) => r);
   }
 }

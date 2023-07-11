@@ -22,7 +22,8 @@ class OrderDetialsController extends BaseOrderDetialsController {
 
   late StatusRequest statusRequest;
 
-  late Completer<GoogleMapController> mapcontroller;
+ Completer<GoogleMapController> mapcontroller =
+      Completer<GoogleMapController>();
 
   CameraPosition? kGooglePlex;
 
@@ -30,10 +31,10 @@ class OrderDetialsController extends BaseOrderDetialsController {
 
   double? lat;
   double? long;
+
   @override
   void onInit() {
     orderModel = Get.arguments['orderModel'];
-    mapcontroller = Completer<GoogleMapController>();
     viewOrderDetails();
     if (orderModel.ordersType == '0') {
       kGooglePlex = CameraPosition(

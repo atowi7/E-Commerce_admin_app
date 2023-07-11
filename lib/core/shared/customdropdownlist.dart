@@ -2,47 +2,42 @@ import 'package:drop_down_list/drop_down_list.dart';
 import 'package:drop_down_list/model/selected_list_item.dart';
 import 'package:ecommerce_admin_app/core/constant/color.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class CustomDropDownList extends StatefulWidget {
+class CustomDropDownList extends StatelessWidget {
+  final BuildContext context;
   final String title;
   final List<SelectedListItem> dataList;
   final TextEditingController selectedId;
   final TextEditingController selectedName;
-  const CustomDropDownList(
-      {super.key,
-      required this.title,
-      required this.dataList,
-      required this.selectedId,
-      required this.selectedName});
+  final IconData icon;
+  const CustomDropDownList({
+    super.key,
+    required this.context,
+    required this.title,
+    required this.dataList,
+    required this.selectedId,
+    required this.selectedName,
+    required this.icon,
+  });
 
-  @override
-  State<CustomDropDownList> createState() => _CustomDropDownListState();
-}
-
-class _CustomDropDownListState extends State<CustomDropDownList> {
   void showDrobDownList() {
     DropDownState(
       DropDown(
-        bottomSheetTitle: Text(
-          widget.title,
+        bottomSheetTitle:
+            Text(title, style: Theme.of(context).textTheme.displayMedium),
+        submitButtonChild: Text(
+          '83'.tr,
           style: const TextStyle(
-            color: AppColor.blue,
-            fontWeight: FontWeight.bold,
-            fontSize: 20.0,
-          ),
-        ),
-        submitButtonChild: const Text(
-          'Done',
-          style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
           ),
         ),
-        data: widget.dataList ?? [],
+        data: dataList ?? [],
         selectedItems: (List<dynamic> selectedList) {
           SelectedListItem selectedListItem = selectedList[0];
-          widget.selectedId.text = selectedListItem.value!;
-          widget.selectedName.text = selectedListItem.name;
+          selectedId.text = selectedListItem.value!;
+          selectedName.text = selectedListItem.name;
         },
       ),
     ).showModal(context);
@@ -50,27 +45,33 @@ class _CustomDropDownListState extends State<CustomDropDownList> {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: widget.selectedName,
-      onTap: () {
-        showDrobDownList();
-      },
-      decoration: InputDecoration(
-          label: Text(
-            widget.selectedName.text == ''
-                ? widget.title
-                : widget.selectedName.text,
-          ),
-          contentPadding: const EdgeInsets.symmetric(horizontal: 30),
-          floatingLabelBehavior: FloatingLabelBehavior.always,
-          hintText: widget.selectedName.text == ''
-              ? widget.title
-              : widget.selectedName.text,
-          //suffixIcon: InkWell(onTap: onTapIcon, child: Icon(icon)),
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(
-            20,
-          ))),
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+      child: TextFormField(
+        controller: selectedName,
+        onTap: () {
+          showDrobDownList();
+        },
+        style: Theme.of(context).textTheme.displayMedium,
+        decoration: InputDecoration(
+            label: Text(
+              selectedName.text == '' ? title : selectedName.text,
+              style: Theme.of(context).textTheme.displayMedium,
+            ),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 30),
+            floatingLabelBehavior: FloatingLabelBehavior.always,
+            hintText: selectedName.text == '' ? title : selectedName.text,
+            hintStyle: Theme.of(context).textTheme.displayMedium,
+            suffixIcon: Icon(
+              icon,
+              color: AppColor.primaryColor,
+            ),
+            //suffixIcon: InkWell(onTap: onTapIcon, child: Icon(icon)),
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(
+              20,
+            ))),
+      ),
     );
   }
 }

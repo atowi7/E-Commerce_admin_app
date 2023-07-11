@@ -15,10 +15,10 @@ class AppRoute {
   //Home
   static const String homePage = '/homepage';
 
-  //Orders
-  static const String ordersHome = '/orderhome';
-  static const String ordersArchive = '/orderarchive';
-  static const String ordersDetails = '/ordersdetails';
+  //User
+  static const String userView = '/userview';
+  static const String userAdd = '/useradd';
+  static const String userEdit = '/useredit';
 
   //Categorie
   static const String categorieView = '/categorieview';
@@ -29,4 +29,15 @@ class AppRoute {
   static const String productView = '/productview';
   static const String productAdd = '/productadd';
   static const String productEdit = '/productedit';
+
+  //Orders
+  static const String ordersHome = '/orderhome';
+  static const String ordersArchive = '/orderarchive';
+  static const String ordersDetails = '/ordersdetails';
+
+  //Notification
+  static const String notification = '/notification';
+
+  //Message
+  static const String message = '/message';
 }

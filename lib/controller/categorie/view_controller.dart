@@ -2,7 +2,7 @@ import 'package:ecommerce_admin_app/core/class/status_request.dart';
 import 'package:ecommerce_admin_app/core/constant/route.dart';
 import 'package:ecommerce_admin_app/core/function/handle_data.dart';
 import 'package:ecommerce_admin_app/core/service/services.dart';
-import 'package:ecommerce_admin_app/data/datasource/remote/categorie_date.dart';
+import 'package:ecommerce_admin_app/data/datasource/remote/categorie_data.dart';
 import 'package:ecommerce_admin_app/data/model/categoriemodel.dart';
 import 'package:get/get.dart';
 
@@ -14,10 +14,10 @@ abstract class BaseCategorieViewController extends GetxController {
 }
 
 class CategorieViewController extends BaseCategorieViewController {
-  List<CategorieModel> dataList = [];
+  List<CategorieModel> categorieList = [];
   AppServices appServices = Get.find();
 
-  CategorieDate categorieDate = CategorieDate(Get.find());
+  CategorieData categorieData = CategorieData(Get.find());
 
   late StatusRequest statusRequest;
   @override
@@ -30,15 +30,15 @@ class CategorieViewController extends BaseCategorieViewController {
   view() async {
     statusRequest = StatusRequest.loading;
     update();
-    var response = await categorieDate.getData();
+    var response = await categorieData.getData();
 
     statusRequest = handleData(response);
 
     if (StatusRequest.sucess == statusRequest) {
       if (response['status'] == 'sucess') {
         List data = response['data'];
-        dataList.clear();
-        dataList.addAll(data.map((e) => CategorieModel.fromJson(e)));
+        categorieList.clear();
+        categorieList.addAll(data.map((e) => CategorieModel.fromJson(e)));
       } else {
         statusRequest = StatusRequest.noDatafailure;
       }
@@ -70,19 +70,20 @@ class CategorieViewController extends BaseCategorieViewController {
       'imagename': imagename,
     };
 
-    var response = await categorieDate.deleteData(data);
+    var response = await categorieData.deleteData(data);
 
     statusRequest = handleData(response);
 
     if (StatusRequest.sucess == statusRequest) {
       if (response['status'] == 'sucess') {
-        dataList.removeWhere((element) => element.id == id);
+        categorieList.removeWhere((element) => element.id == id);
         update();
-        Get.snackbar('NOTFY', 'delete from Categorie sucess');
+        Get.snackbar('30'.tr, '92'.tr,duration: const Duration(seconds: 2));
       } else {
-        statusRequest = StatusRequest.noDatafailure;
+        Get.snackbar('30'.tr, '93'.tr,duration: const Duration(seconds: 2));
       }
     } else {
+      Get.snackbar('88'.tr, '89'.tr,duration: const Duration(seconds: 2));
       statusRequest = StatusRequest.serverFailure;
     }
     update();

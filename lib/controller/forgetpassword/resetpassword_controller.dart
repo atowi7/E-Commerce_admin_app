@@ -49,18 +49,18 @@ class ResetPasswordController extends BaseResetPasswordController {
           if (response['status'] == 'sucess') {
             Get.offNamed(AppRoute.sucessResetPassword);
           } else {
-            Get.defaultDialog(title: 'ERROR', middleText: 'ERROR');
+            Get.defaultDialog(title: '88'.tr, middleText: '88'.tr);
             //statusRequest = StatusRequest.noDatafailure;
           }
         } else {
-          Get.defaultDialog(title: 'ERROR', middleText: 'SERVER ERROR');
+          Get.defaultDialog(title: '88'.tr, middleText: '89'.tr);
           statusRequest = StatusRequest.serverFailure;
         }
       } else {
-        Get.defaultDialog(title: 'ERROR', middleText: 'PASSWORDS NOT MATCH');
+        Get.defaultDialog(title: '88'.tr, middleText: '96'.tr);
       }
     } else {
-      Get.defaultDialog(title: 'ERROR', middleText: 'VALIDATION ERROR');
+      Get.defaultDialog(title: '88'.tr, middleText: '95'.tr);
     }
     update();
   }

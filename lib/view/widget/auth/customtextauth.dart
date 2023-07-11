@@ -16,10 +16,16 @@ class CustomTextAuth extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(t1),
+        Text(
+          t1,
+          style: Theme.of(context).textTheme.displayMedium,
+        ),
         InkWell(
           onTap: onTap,
-          child: Text(t2),
+          child: Text(
+            t2,
+            style: Theme.of(context).textTheme.displaySmall,
+          ),
         )
       ],
     );

@@ -1,3 +1,4 @@
+import 'package:ecommerce_admin_app/core/constant/color.dart';
 import 'package:ecommerce_admin_app/core/constant/route.dart';
 import 'package:ecommerce_admin_app/view/widget/auth/custombutton.dart';
 import 'package:flutter/material.dart';
@@ -10,23 +11,24 @@ class SucessSignupScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        title:  Text('19'.tr),
+        title: Text(
+          '19'.tr,
+        ),
       ),
       body: Center(
         child: Column(
           children: [
-             Icon(
+            const Icon(
               Icons.check_circle,
-              color: Theme.of(context).primaryColor,
+              color: AppColor.primaryColor,
               size: 350,
             ),
             const SizedBox(
               height: 20,
             ),
-             Text(
+            Text(
               '20'.tr,
-              style: const TextStyle(fontSize: 30),
+              style: Theme.of(context).textTheme.displayLarge,
             ),
             const SizedBox(
               height: 20,

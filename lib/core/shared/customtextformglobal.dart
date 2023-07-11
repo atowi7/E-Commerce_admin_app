@@ -1,3 +1,4 @@
+import 'package:ecommerce_admin_app/core/constant/color.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormGlobal extends StatelessWidget {
@@ -24,18 +25,28 @@ class CustomTextFormGlobal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 20),
+      margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
       child: TextFormField(
         keyboardType: isNumber ? TextInputType.number : TextInputType.text,
         obscureText: obscureText == null || false ? false : true,
         controller: controller,
         validator: validator,
+        style: Theme.of(context).textTheme.displayMedium,
         decoration: InputDecoration(
-            label: Text(labelText),
+            label: Text(
+              labelText,
+              style: Theme.of(context).textTheme.displayMedium,
+            ),
             contentPadding: const EdgeInsets.symmetric(horizontal: 30),
             floatingLabelBehavior: FloatingLabelBehavior.always,
             hintText: hintText,
-            suffixIcon: InkWell(onTap: onTapIcon, child: Icon(icon)),
+            hintStyle: Theme.of(context).textTheme.displayMedium,
+            suffixIcon: InkWell(
+                onTap: onTapIcon,
+                child: Icon(
+                  icon,
+                  color: AppColor.primaryColor,
+                )),
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(
               20,

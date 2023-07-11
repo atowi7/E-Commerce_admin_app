@@ -23,44 +23,76 @@ class OrderAcceptedWedget extends GetView<OrdersAcceptedController> {
               ),
               const Spacer(),
               Text(
-                Jiffy.parse(orderModel.ordersCreatedat!).fromNow(),
+                Jiffy.parse(orderModel.orderscreatedAt!).fromNow(),
                 style: Theme.of(context).textTheme.displayMedium,
               ),
             ],
           ),
-          const Divider(color: AppColor.blue),
-          Text('${'47'.tr} : ${orderModel.ordersPrice}'),
-          Text('${'48'.tr} : ${orderModel.ordersDeliveryprice}\$'),
+          const Divider(color: AppColor.primaryColor),
           Text(
-              '${'49'.tr} : ${controller.getPaymentMethod(orderModel.ordersPaymentmethod!)}'),
+            '${'47'.tr} : ${orderModel.ordersPrice}',
+            style: Theme.of(context).textTheme.displayMedium,
+          ),
           Text(
-              '${'50'.tr} : ${controller.getDeliveryType(orderModel.ordersType!)}'),
+            '${'48'.tr} : ${orderModel.ordersDeliveryprice}\$',
+            style: Theme.of(context).textTheme.displayMedium,
+          ),
           Text(
-              '${'51'.tr} : ${controller.getStatus(orderModel.ordersStatus!)}'),
-          const Divider(color: AppColor.blue),
-          Text('${'52'.tr} : ${orderModel.ordersTotalprice}\$'),
-          const Divider(color: AppColor.blue),
+            '${'49'.tr} : ${controller.getPaymentMethod(orderModel.ordersPaymentmethod!)}',
+            style: Theme.of(context).textTheme.displayMedium,
+          ),
+          Text(
+            '${'50'.tr} : ${controller.getDeliveryType(orderModel.ordersType!)}',
+            style: Theme.of(context).textTheme.displayMedium,
+          ),
+          Text(
+            '${'51'.tr} : ${controller.getStatus(orderModel.ordersStatus!)}',
+            style: Theme.of(context).textTheme.displayMedium,
+          ),
+          const Divider(color: AppColor.primaryColor),
+          Text(
+            '${'52'.tr} : ${orderModel.ordersTotalprice}\$',
+            style: Theme.of(context).textTheme.displayMedium,
+          ),
+          const Divider(color: AppColor.primaryColor),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               if (orderModel.ordersStatus == '1')
-                MaterialButton(
+                Container(
+                  decoration: BoxDecoration(
+                      color: AppColor.primaryColor,
+                      borderRadius: BorderRadius.circular(25)),
+                  child: MaterialButton(
+                      onPressed: () {
+                        controller.prepare(orderModel.ordersId!,
+                            orderModel.ordersUserid!, orderModel.ordersType!);
+                      },
+                      splashColor: AppColor.secondaryColor,
+                      child: Text(
+                        '83'.tr,
+                        style: Theme.of(context).textTheme.labelLarge,
+                      )),
+                ),
+              Container(
+                decoration: BoxDecoration(
+                    color: AppColor.primaryColor,
+                    borderRadius: BorderRadius.circular(25)),
+                child: MaterialButton(
                     onPressed: () {
-                      controller.prepare(orderModel.ordersId!,
-                          orderModel.ordersUserid!, orderModel.ordersType!);
+                      Get.toNamed(AppRoute.ordersDetails, arguments: {
+                        'orderModel': orderModel,
+                      });
                     },
-                    color: AppColor.blue,
-                    child: Text('83'.tr)),
-              MaterialButton(
-                  onPressed: () {
-                    Get.toNamed(AppRoute.ordersDetails, arguments: {
-                      'orderModel': orderModel,
-                    });
-                  },
-                  color: AppColor.blue,
-                  child: Text('53'.tr)),
+                    splashColor: AppColor.secondaryColor,
+                    child: Text(
+                      '53'.tr,
+                      style: Theme.of(context).textTheme.labelLarge,
+                    )),
+              ),
             ],
           ),
+          const Divider(color: AppColor.primaryColor),
         ],
       ),
     );

@@ -11,9 +11,6 @@ class OrdersArchiveScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(OrdersArchiveController());
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('45'.tr),
-      // ),
       body: GetBuilder<OrdersArchiveController>(builder: (controller) {
         return HandlingDataView(
           statusRequest: controller.statusRequest,

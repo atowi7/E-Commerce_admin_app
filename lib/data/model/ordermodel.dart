@@ -10,7 +10,7 @@ class OrderModel {
   String? ordersRatenote;
   String? ordersType;
   String? ordersStatus;
-  String? ordersCreatedat;
+  String? orderscreatedAt;
   String? ordersDeleted;
   String? ordersAddressid;
   String? ordersUserid;
@@ -34,7 +34,7 @@ class OrderModel {
     this.ordersRatenote,
     this.ordersType,
     this.ordersStatus,
-    this.ordersCreatedat,
+    this.orderscreatedAt,
     this.ordersDeleted,
     this.ordersAddressid,
     this.ordersUserid,
@@ -59,7 +59,7 @@ class OrderModel {
     ordersRatenote = json['orders_ratenote'];
     ordersType = json['orders_type'];
     ordersStatus = json['orders_status'];
-    ordersCreatedat = json['orders_createdat'];
+    orderscreatedAt = json['orders_createdAt'];
     ordersDeleted = json['orders_deleted'];
     ordersAddressid = json['orders_addressid'];
     ordersUserid = json['orders_userid'];

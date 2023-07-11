@@ -9,12 +9,17 @@ import 'package:ecommerce_admin_app/view/screen/categorie/edit.dart';
 import 'package:ecommerce_admin_app/view/screen/categorie/view.dart';
 import 'package:ecommerce_admin_app/view/screen/home_screen.dart';
 import 'package:ecommerce_admin_app/view/screen/language_screen.dart';
+import 'package:ecommerce_admin_app/view/screen/message_screen.dart';
+import 'package:ecommerce_admin_app/view/screen/notification_screen.dart';
 import 'package:ecommerce_admin_app/view/screen/orders/ordersarchive.dart';
 import 'package:ecommerce_admin_app/view/screen/orders/ordersdetails.dart';
 import 'package:ecommerce_admin_app/view/screen/orders/ordershome.dart';
 import 'package:ecommerce_admin_app/view/screen/product/add.dart';
 import 'package:ecommerce_admin_app/view/screen/product/edit.dart';
 import 'package:ecommerce_admin_app/view/screen/product/view.dart';
+import 'package:ecommerce_admin_app/view/screen/user/add.dart';
+import 'package:ecommerce_admin_app/view/screen/user/edit.dart';
+import 'package:ecommerce_admin_app/view/screen/user/view.dart';
 
 import 'package:get/get.dart';
 
@@ -59,16 +64,16 @@ List<GetPage<dynamic>>? routes = [
     page: () => const HomeScreen(),
   ),
   GetPage(
-    name: AppRoute.ordersHome,
-    page: () => const OrdersHomeScreen(),
+    name: AppRoute.userView,
+    page: () => const UserView(),
   ),
   GetPage(
-    name: AppRoute.ordersDetails,
-    page: () => const OrderDetailsScreen(),
+    name: AppRoute.userAdd,
+    page: () => const UserAdd(),
   ),
   GetPage(
-    name: AppRoute.ordersArchive,
-    page: () => const OrdersArchiveScreen(),
+    name: AppRoute.userEdit,
+    page: () => const UserEdit(),
   ),
   GetPage(
     name: AppRoute.categorieView,
@@ -93,5 +98,25 @@ List<GetPage<dynamic>>? routes = [
   GetPage(
     name: AppRoute.productEdit,
     page: () => const ProductEdit(),
+  ),
+  GetPage(
+    name: AppRoute.ordersHome,
+    page: () => const OrdersHomeScreen(),
+  ),
+  GetPage(
+    name: AppRoute.ordersDetails,
+    page: () => const OrderDetailsScreen(),
+  ),
+  GetPage(
+    name: AppRoute.ordersArchive,
+    page: () => const OrdersArchiveScreen(),
+  ),
+  GetPage(
+    name: AppRoute.notification,
+    page: () => const NotificationScreen(),
+  ),
+  GetPage(
+    name: AppRoute.message,
+    page: () => const MessageScreen(),
   ),
 ];

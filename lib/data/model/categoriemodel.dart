@@ -9,6 +9,7 @@ class CategorieModel {
     this.name,
     this.nameAr,
     this.image,
+    this.createdAt,
   });
 
   CategorieModel.fromJson(Map<String, dynamic> json) {

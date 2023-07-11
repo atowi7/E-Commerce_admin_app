@@ -7,7 +7,7 @@ import 'package:ecommerce_admin_app/core/constant/route.dart';
 import 'package:ecommerce_admin_app/core/function/handle_data.dart';
 import 'package:ecommerce_admin_app/core/function/uploadfile.dart';
 import 'package:ecommerce_admin_app/core/service/services.dart';
-import 'package:ecommerce_admin_app/data/datasource/remote/categorie_date.dart';
+import 'package:ecommerce_admin_app/data/datasource/remote/categorie_data.dart';
 import 'package:ecommerce_admin_app/data/datasource/remote/product_data.dart';
 import 'package:ecommerce_admin_app/data/model/categoriemodel.dart';
 import 'package:ecommerce_admin_app/data/model/productmodel.dart';
@@ -18,7 +18,7 @@ abstract class BaseProductEditController extends GetxController {
   edit();
   getCategories();
   changeActiveStatus(val);
-  chooseImageOptions();
+  chooseImageOptions(BuildContext context);
   chooseImageFromCamera();
   chooseImageFromGallery();
 }
@@ -87,6 +87,15 @@ class ProductEditController extends BaseProductEditController {
   @override
   edit() async {
     if (formState.currentState!.validate()) {
+      if (catId.text.isEmpty) {
+        return Get.snackbar('30'.tr, '132'.tr,
+            duration: const Duration(seconds: 2));
+      }
+
+      if (imageFile == null) {
+        return Get.snackbar('30'.tr, '85'.tr,
+            duration: const Duration(seconds: 2));
+      }
       statusRequest = StatusRequest.loading;
       update();
       Map data = {
@@ -112,11 +121,14 @@ class ProductEditController extends BaseProductEditController {
         if (response['status'] == 'sucess') {
           Get.offNamed(AppRoute.productView);
           ProductViewController controller = Get.find();
+          Get.snackbar('88'.tr, '113'.tr, duration: const Duration(seconds: 2));
           controller.view();
         } else {
+          Get.snackbar('88'.tr, '114'.tr, duration: const Duration(seconds: 2));
           statusRequest = StatusRequest.noDatafailure;
         }
       } else {
+        Get.snackbar('88'.tr, '89'.tr, duration: const Duration(seconds: 2));
         statusRequest = StatusRequest.serverFailure;
       }
       update();
@@ -127,11 +139,11 @@ class ProductEditController extends BaseProductEditController {
   getCategories() async {
     List<CategorieModel> dataList = [];
 
-    CategorieDate categorieDate = CategorieDate(Get.find());
+    CategorieData categorieData = CategorieData(Get.find());
 
     statusRequest = StatusRequest.loading;
     update();
-    var response = await categorieDate.getData();
+    var response = await categorieData.getData();
 
     statusRequest = handleData(response);
 
@@ -161,8 +173,8 @@ class ProductEditController extends BaseProductEditController {
   }
 
   @override
-  chooseImageOptions() {
-    showBottomOptions(chooseImageFromCamera, chooseImageFromGallery);
+  chooseImageOptions(BuildContext context) {
+    showBottomOptions(context, chooseImageFromCamera, chooseImageFromGallery);
   }
 
   @override

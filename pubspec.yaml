@@ -51,13 +51,14 @@ dependencies:
   google_maps_flutter: ^2.2.4
   geolocator: ^9.0.2
   geocoding: ^2.0.5
-
+  
+  intl: ^0.18.1
   jiffy: ^6.1.0
   url_launcher: ^6.1.10
   rating_dialog: ^2.0.4
   file_picker: ^5.3.0
   drop_down_list: ^0.0.4
-  image_picker: ^0.8.7+5
+  image_picker: ^0.8.6
 
 
 dev_dependencies:

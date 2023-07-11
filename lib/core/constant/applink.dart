@@ -5,7 +5,7 @@ class AppLink {
   //image
   static const String image = '$server/upload';
   static const String categrieImage = '$image/categorie';
-  static const String productImage = '$image/item';
+  static const String productImage = '$image/product';
 
   //Auth
   static const String signup = '$server/admin/auth/signup.php';
@@ -34,8 +34,11 @@ class AppLink {
       '$server/admin/orders/viewpending.php';
   static const String ordersDetials = '$server/admin/orders/details.php';
 
-  //Notification
-  static const String notification = '$server/admin/notification.php';
+  //User
+  static const String userView = '$server/admin/user/view.php';
+  static const String userAdd = '$server/admin/user/add.php';
+  static const String userEdit = '$server/admin/user/edit.php';
+  static const String userDelete = '$server/admin/user/delete.php';
 
   //Categorie
   static const String categorieView = '$server/admin/categorie/view.php';
@@ -48,4 +51,12 @@ class AppLink {
   static const String productAdd = '$server/admin/product/add.php';
   static const String productEdit = '$server/admin/product/edit.php';
   static const String productDelete = '$server/admin/product/delete.php';
+
+  //Notification
+  static const String notificationView = '$server/notification/view.php';
+  static const String notificationDelete = '$server/notification/delete.php';
+
+  //Message
+  static const String messageView = '$server/message/view.php';
+  static const String messageDelete = '$server/message/delete.php';
 }

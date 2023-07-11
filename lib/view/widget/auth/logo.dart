@@ -7,6 +7,6 @@ class Logo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Lottie.asset(ImageAssets.profile);
+    return Lottie.asset(ImageAssets.profile,height: 100,width: 100,fit: BoxFit.contain);
   }
 }

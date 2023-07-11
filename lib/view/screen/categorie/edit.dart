@@ -15,7 +15,10 @@ class CategorieEdit extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(CategorieEditController());
     return Scaffold(
-      appBar: AppBar(title: Text('63'.tr)),
+      appBar: AppBar(
+          title: Text(
+        '63'.tr,
+      )),
       body: GetBuilder<CategorieEditController>(builder: (controller) {
         return HandlingDataView(
           statusRequest: controller.statusRequest,
@@ -26,7 +29,7 @@ class CategorieEdit extends StatelessWidget {
                 CustomTextFormGlobal(
                     labelText: '57'.tr,
                     hintText: '58'.tr,
-                    icon: Icons.category,
+                    icon: Icons.category_rounded,
                     isNumber: false,
                     controller: controller.name,
                     validator: (val) {
@@ -35,20 +38,25 @@ class CategorieEdit extends StatelessWidget {
                 CustomTextFormGlobal(
                     labelText: '59'.tr,
                     hintText: '60'.tr,
-                    icon: Icons.category,
+                    icon: Icons.category_rounded,
                     isNumber: false,
                     controller: controller.nameAr,
                     validator: (val) {
                       return inputValidation('', val!, 1, 30);
                     }),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  margin:
+                      EdgeInsets.symmetric(horizontal: Get.size.width * 0.3),
+                  decoration: BoxDecoration(
+                      color: AppColor.primaryColor,
+                      borderRadius: BorderRadius.circular(25)),
                   child: MaterialButton(
-                    color: AppColor.blue,
+                    splashColor: AppColor.secondaryColor,
                     onPressed: () {
                       controller.chooseImage();
                     },
-                    child: Text('61'.tr),
+                    child: Text('61'.tr,
+                        style: Theme.of(context).textTheme.labelMedium),
                   ),
                 ),
                 if (controller.imageFile != null)

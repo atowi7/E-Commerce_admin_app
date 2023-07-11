@@ -15,8 +15,9 @@ class SignupVerficationScreen extends StatelessWidget {
     Get.put(SignupVerficationController());
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        title: Text('15'.tr),
+        title: Text(
+          '15'.tr,
+        ),
       ),
       body: GetBuilder<SignupVerficationController>(builder: (controller) {
         return HandlingDataReqest(
@@ -40,7 +41,7 @@ class SignupVerficationScreen extends StatelessWidget {
                 child: Center(
                     child: Text(
                   '18'.tr,
-                  style: Theme.of(context).textTheme.displaySmall,
+                  style: Theme.of(context).textTheme.bodyMedium,
                 )),
               )
             ],

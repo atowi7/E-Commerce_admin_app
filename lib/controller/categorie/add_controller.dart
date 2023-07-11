@@ -6,7 +6,7 @@ import 'package:ecommerce_admin_app/core/constant/route.dart';
 import 'package:ecommerce_admin_app/core/function/handle_data.dart';
 import 'package:ecommerce_admin_app/core/function/uploadfile.dart';
 import 'package:ecommerce_admin_app/core/service/services.dart';
-import 'package:ecommerce_admin_app/data/datasource/remote/categorie_date.dart';
+import 'package:ecommerce_admin_app/data/datasource/remote/categorie_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,7 +18,7 @@ abstract class BaseCategorieAddController extends GetxController {
 class CategorieAddController extends BaseCategorieAddController {
   AppServices appServices = Get.find();
 
-  CategorieDate categorieDate = CategorieDate(Get.find());
+  CategorieData categorieData = CategorieData(Get.find());
 
   GlobalKey<FormState> formState = GlobalKey<FormState>();
 
@@ -40,7 +40,7 @@ class CategorieAddController extends BaseCategorieAddController {
   add() async {
     if (formState.currentState!.validate()) {
       if (imageFile == null) {
-        return Get.snackbar('Warrning', 'Please choose an image');
+        return Get.snackbar('30'.tr, '85'.tr,duration: const Duration(seconds: 2));
       }
 
       statusRequest = StatusRequest.loading;
@@ -49,7 +49,7 @@ class CategorieAddController extends BaseCategorieAddController {
         'name': name.text,
         'namear': nameAr.text,
       };
-      var response = await categorieDate.addData(data, imageFile!);
+      var response = await categorieData.addData(data, imageFile!);
 
       statusRequest = handleData(response);
 
@@ -58,10 +58,13 @@ class CategorieAddController extends BaseCategorieAddController {
           Get.offNamed(AppRoute.categorieView);
           CategorieViewController controller = Get.find();
           controller.view();
+          Get.snackbar('30'.tr, '86'.tr,duration: const Duration(seconds: 2));
         } else {
+          Get.snackbar('30'.tr, '87'.tr,duration: const Duration(seconds: 2));
           statusRequest = StatusRequest.noDatafailure;
         }
       } else {
+        Get.snackbar('88'.tr, '89'.tr,duration: const Duration(seconds: 2));
         statusRequest = StatusRequest.serverFailure;
       }
       update();

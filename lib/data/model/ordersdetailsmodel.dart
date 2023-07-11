@@ -11,7 +11,7 @@ class OrdersDetailsModel {
   String? proDiscount;
   String? proActive;
   String? proCount;
-  String? proCreatedat;
+  String? procreatedAt;
   String? catId;
   String? cartId;
   String? cartUserid;
@@ -31,7 +31,7 @@ class OrdersDetailsModel {
       this.proDiscount,
       this.proActive,
       this.proCount,
-      this.proCreatedat,
+      this.procreatedAt,
       this.catId,
       this.cartId,
       this.cartUserid,
@@ -51,7 +51,7 @@ class OrdersDetailsModel {
     proDiscount = json['pro_discount'];
     proActive = json['pro_active'];
     proCount = json['pro_count'];
-    proCreatedat = json['pro_createdat'];
+    procreatedAt = json['pro_createdAt'];
     catId = json['cat_id'];
     cartId = json['cart_id'];
     cartUserid = json['cart_userid'];
@@ -73,7 +73,7 @@ class OrdersDetailsModel {
     data['pro_discount'] = proDiscount;
     data['pro_active'] = proActive;
     data['pro_count'] = proCount;
-    data['pro_createdat'] = proCreatedat;
+    data['pro_createdAt'] = procreatedAt;
     data['cat_id'] = catId;
     data['cart_id'] = cartId;
     data['cart_userid'] = cartUserid;

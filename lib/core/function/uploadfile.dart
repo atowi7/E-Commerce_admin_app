@@ -7,58 +7,85 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 imageUploadCamera() async {
-  XFile? file = await ImagePicker()
-      .pickImage(source: ImageSource.camera, imageQuality: 90);
-  if (file != null) {
-    return File(file.path);
-  } else {
-    return null;
+  try {
+    XFile? file = await ImagePicker()
+        .pickImage(source: ImageSource.camera, imageQuality: 90);
+    if (file != null) {
+      return File(file.path);
+    } else {
+      return null;
+    }
+  } catch (e) {
+    Get.snackbar('88'.tr, e.toString(), duration: const Duration(seconds: 2));
   }
 }
 
 fileUploadGallery([isSVG = false]) async {
-  FilePickerResult? result = await FilePicker.platform.pickFiles(
-    type: FileType.custom,
-    allowedExtensions:
-        isSVG ? ['svg', 'SVG'] : ['png', 'PNG', 'jpeg', 'JPEG', 'gif', 'GIF'],
-  );
+  try {
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions:
+          isSVG ? ['svg', 'SVG'] : ['png', 'PNG', 'jpeg', 'JPEG', 'gif', 'GIF'],
+    );
 
-  if (result != null) {
-    print(' result : $result');
-    return File(result.files.single.path!);
-  } else {
-    print(' result : $result');
-    return null;
+    if (result != null) {
+      print(' result : $result');
+      return File(result.files.single.path!);
+    } else {
+      print(' result : $result');
+      return null;
+    }
+  } catch (e) {
+    Get.snackbar('88'.tr, e.toString(), duration: const Duration(seconds: 2));
   }
 }
 
-showBottomOptions(imageUploadCamera(), fileUploadGallery()) {
+showBottomOptions(
+    BuildContext context, imageUploadCamera(), fileUploadGallery()) {
   Get.bottomSheet(
     Container(
       padding: const EdgeInsets.all(10),
-      color: AppColor.blue,
-      child: Column(children: [
-        const Text('Choose image',
-            style: TextStyle(
-                color: AppColor.blue,
-                fontSize: 20,
-                fontWeight: FontWeight.bold)),
-        ListTile(
-          onTap: () {
-            imageUploadCamera();
-          },
-          leading: const Icon(Icons.camera),
-          title: const Text('Take photo from camera'),
-        ),
-        const Divider(),
-        ListTile(
-          onTap: () {
-            fileUploadGallery();
-          },
-          leading: const Icon(Icons.image),
-          title: const Text(' from gallery'),
-        ),
-      ]),
+      color: AppColor.secondaryColor,
+      child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text('Choose image',
+                style: Theme.of(context).textTheme.displayLarge),
+            ListTile(
+              onTap: () {
+                imageUploadCamera();
+              },
+              leading: const Icon(
+                Icons.camera,
+                size: 30,
+                color: AppColor.primaryColor,
+              ),
+              title: Text('Take photo from camera',
+                  style: Theme.of(context)
+                      .textTheme
+                      .displayMedium!
+                      .copyWith(color: AppColor.forthColor)),
+            ),
+            const Divider(
+              color: AppColor.thirdColor,
+            ),
+            ListTile(
+              onTap: () {
+                fileUploadGallery();
+              },
+              leading: const Icon(
+                Icons.image,
+                size: 30,
+                color: AppColor.primaryColor,
+              ),
+              title: Text(' from gallery',
+                  style: Theme.of(context)
+                      .textTheme
+                      .displayMedium!
+                      .copyWith(color: AppColor.forthColor)),
+            ),
+          ]),
     ),
   );
 }

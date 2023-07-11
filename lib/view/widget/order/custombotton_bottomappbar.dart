@@ -16,20 +16,23 @@ class CustomBottonBottomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        MaterialButton(
-          onPressed: onPressed,
-          child: Icon(
+    return MaterialButton(
+
+      onPressed: onPressed,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Icon(
             icon,
-            color: active ? AppColor.blue : AppColor.black,
+            size: 25,
+            color: active ? AppColor.primaryColor : AppColor.secondaryColor,
           ),
-        ),
-        Text(
-          title,
-          style: TextStyle(color: active ? AppColor.blue : AppColor.black),
-        ),
-      ],
+          Text(
+            title,
+            style: Theme.of(context).textTheme.displaySmall,
+          ),
+        ],
+      ),
     );
   }
 }

@@ -23,21 +23,31 @@ class OrderPendingWedget extends GetView<OrdersPendingController> {
               ),
               const Spacer(),
               Text(
-                Jiffy.parse(orderModel.ordersCreatedat!).fromNow(),
+                Jiffy.parse(orderModel.orderscreatedAt!).fromNow(),
                 style: Theme.of(context).textTheme.displayMedium,
               ),
             ],
           ),
-          const Divider(color: AppColor.blue),
-          Text('${'47'.tr} : ${orderModel.ordersPrice}'),
+          const Divider(color: AppColor.primaryColor),
+          Text(
+            '${'47'.tr} : ${orderModel.ordersPrice}',
+            style: Theme.of(context).textTheme.displayMedium,
+          ),
           Text('${'48'.tr} : ${orderModel.ordersDeliveryprice}\$'),
           Text(
-              '${'49'.tr} : ${controller.getPaymentMethod(orderModel.ordersPaymentmethod!)}'),
+            '${'49'.tr} : ${controller.getPaymentMethod(orderModel.ordersPaymentmethod!)}',
+            style: Theme.of(context).textTheme.displayMedium,
+          ),
           Text(
-              '${'50'.tr} : ${controller.getDeliveryType(orderModel.ordersType!)}'),
-          const Divider(color: AppColor.blue),
-          Text('${'52'.tr} : ${orderModel.ordersTotalprice}\$'),
-          const Divider(color: AppColor.blue),
+            '${'50'.tr} : ${controller.getDeliveryType(orderModel.ordersType!)}',
+            style: Theme.of(context).textTheme.displayMedium,
+          ),
+          const Divider(color: AppColor.primaryColor),
+          Text(
+            '${'52'.tr} : ${orderModel.ordersTotalprice}\$',
+            style: Theme.of(context).textTheme.displayMedium,
+          ),
+          const Divider(color: AppColor.primaryColor),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -46,18 +56,24 @@ class OrderPendingWedget extends GetView<OrdersPendingController> {
                     controller.approveOrders(
                         orderModel.ordersId!, orderModel.ordersUserid!);
                   },
-                  color: AppColor.blue,
+                  color: AppColor.primaryColor,
                   child: Text('84'.tr)),
-              MaterialButton(
-                  onPressed: () {
-                    Get.toNamed(AppRoute.ordersDetails, arguments: {
-                      'orderModel': orderModel,
-                    });
-                  },
-                  color: AppColor.blue,
-                  child: Text('53'.tr)),
+              Container(
+                decoration: BoxDecoration(
+                    color: AppColor.primaryColor,
+                    borderRadius: BorderRadius.circular(25)),
+                child: MaterialButton(
+                    onPressed: () {
+                      Get.toNamed(AppRoute.ordersDetails, arguments: {
+                        'orderModel': orderModel,
+                      });
+                    },
+                    splashColor: AppColor.secondaryColor,
+                    child: Text('53'.tr)),
+              ),
             ],
           ),
+          const Divider(color: AppColor.primaryColor),
         ],
       ),
     );

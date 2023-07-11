@@ -12,15 +12,15 @@ class OrderScreenController extends BaseOrderScreenController {
   int currentPage = 0;
   List icons = [
     {
-      'title': 'Pendinging',
+      'title': '109'.tr,
       'icon': Icons.lock_clock_outlined,
     },
     {
-      'title': 'Accepted',
+      'title': '110'.tr,
       'icon': Icons.done,
     },
     {
-      'title': 'Archive',
+      'title': '107'.tr,
       'icon': Icons.archive_outlined,
     },
   ];

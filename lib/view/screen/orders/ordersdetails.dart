@@ -10,7 +10,7 @@ class OrderDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    OrderDetialsController controller = Get.put(OrderDetialsController());
+    Get.put(OrderDetialsController());
     return Scaffold(
       appBar: AppBar(
         title: Text('39'.tr),
@@ -31,7 +31,7 @@ class OrderDetailsScreen extends StatelessWidget {
                           '40'.tr,
                           textAlign: TextAlign.center,
                           style: const TextStyle(
-                            color: AppColor.blue,
+                            color: AppColor.primaryColor,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -39,7 +39,7 @@ class OrderDetailsScreen extends StatelessWidget {
                           '41'.tr,
                           textAlign: TextAlign.center,
                           style: const TextStyle(
-                            color: AppColor.blue,
+                            color: AppColor.primaryColor,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -47,7 +47,7 @@ class OrderDetailsScreen extends StatelessWidget {
                           '42'.tr,
                           textAlign: TextAlign.center,
                           style: const TextStyle(
-                            color: AppColor.blue,
+                            color: AppColor.primaryColor,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -75,12 +75,13 @@ class OrderDetailsScreen extends StatelessWidget {
               ),
               Center(
                 child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   child: Card(
                     child: Text(
                       '${'43'.tr} ${controller.orderModel.ordersTotalprice}\$',
                       style: const TextStyle(
-                        color: AppColor.blue,
+                        color: AppColor.primaryColor,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -95,10 +96,10 @@ class OrderDetailsScreen extends StatelessWidget {
                     child: ListTile(
                       title: Text(
                         '44'.tr,
-                        style: const TextStyle(
-                          color: AppColor.blue,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: Theme.of(context)
+                            .textTheme
+                            .displayLarge!
+                            .copyWith(color: AppColor.primaryColor),
                       ),
                       subtitle: Text(
                           '${controller.orderModel.addressCity} ${controller.orderModel.addressStreet}'),
