@@ -1,11 +1,11 @@
 import 'package:ecommerce_admin_app/controller/forgetpassword/checkemail_controller.dart';
 import 'package:ecommerce_admin_app/core/class/handlingdataview.dart';
+import 'package:ecommerce_admin_app/core/constant/color.dart';
 import 'package:ecommerce_admin_app/core/function/input_validation.dart';
 import 'package:ecommerce_admin_app/view/widget/auth/custombutton.dart';
 import 'package:ecommerce_admin_app/view/widget/auth/customtextbody.dart';
 import 'package:ecommerce_admin_app/view/widget/auth/customtextform.dart';
 import 'package:ecommerce_admin_app/view/widget/auth/customtexttitle.dart';
-import 'package:ecommerce_admin_app/view/widget/auth/logo.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -28,7 +28,12 @@ class CheckemailScreen extends StatelessWidget {
             key: controller.formKey,
             child: ListView(
               children: [
-                const Logo(),
+                // const Logo(),
+                const Icon(
+                  Icons.email_rounded,
+                  size: 200,
+                  color: AppColor.primaryColor,
+                ),
                 CustomTextTitle(title: '22'.tr),
                 CustomTextBody(title: '23'.tr),
                 CustomTextForm(
@@ -45,6 +50,12 @@ class CheckemailScreen extends StatelessWidget {
                   title: '24'.tr,
                   onPressed: () {
                     controller.openVerfication();
+                  },
+                ),
+                CustomButton(
+                  title: '132'.tr,
+                  onPressed: () {
+                    controller.backTologin();
                   },
                 ),
               ],

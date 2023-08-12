@@ -59,8 +59,8 @@ class OrderDetialsController extends BaseOrderDetialsController {
 
     statusRequest = handleData(response);
 
-    if (StatusRequest.sucess == statusRequest) {
-      if (response['status'] == 'sucess') {
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
         List data = response['data'];
         dataList.clear();
         dataList.addAll(data.map((e) => OrdersDetailsModel.fromJson(e)));

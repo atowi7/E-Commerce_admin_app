@@ -59,7 +59,7 @@ class OrderModel {
     ordersRatenote = json['orders_ratenote'];
     ordersType = json['orders_type'];
     ordersStatus = json['orders_status'];
-    orderscreatedAt = json['orders_createdAt'];
+    orderscreatedAt = json['orders_createdat'];
     ordersDeleted = json['orders_deleted'];
     ordersAddressid = json['orders_addressid'];
     ordersUserid = json['orders_userid'];

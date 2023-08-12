@@ -11,7 +11,7 @@ abstract class BaseNotificationController extends GetxController {
 }
 
 class NotificationController extends BaseNotificationController {
-  late String userid;
+  late String adminid;
   List<NotificationModel> dataList = [];
 
   AppServices appServices = Get.find();
@@ -22,7 +22,7 @@ class NotificationController extends BaseNotificationController {
 
   @override
   void onInit() {
-    userid = appServices.sharedPreferences.getString('adminid')!;
+    adminid = appServices.sharedPreferences.getString('adminid')!;
     getData();
     super.onInit();
   }
@@ -32,12 +32,12 @@ class NotificationController extends BaseNotificationController {
     statusRequest = StatusRequest.loading;
     update();
 
-    var response = await notificationData.getData(userid);
+    var response = await notificationData.getData(adminid);
 
     statusRequest = handleData(response);
 
-    if (StatusRequest.sucess == statusRequest) {
-      if (response['status'] == 'sucess') {
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
         List data = response['data'];
         dataList.clear();
         dataList.addAll(data.map((e) => NotificationModel.fromJson(e)));
@@ -54,12 +54,12 @@ class NotificationController extends BaseNotificationController {
 
   @override
   deleteData(id) async {
-    var response = await notificationData.deleteData(id, userid);
+    var response = await notificationData.deleteData(id, adminid);
 
     statusRequest = handleData(response);
 
-    if (StatusRequest.sucess == statusRequest) {
-      if (response['status'] == 'sucess') {
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
         Get.snackbar('30'.tr, '115'.tr, duration: const Duration(seconds: 2));
         update();
       } else {

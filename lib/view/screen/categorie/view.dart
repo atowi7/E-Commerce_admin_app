@@ -38,18 +38,20 @@ class CategorieView extends StatelessWidget {
                       margin: const EdgeInsets.all(10),
                       color: AppColor.forthColor,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Expanded(
                             flex: 2,
-                            child: controller.categorieList[i].image == ""
-                                ? const Icon(
-                                    Icons.category_rounded,
-                                    size: 50,
-                                  )
-                                : SvgPicture.network(
-                                    '${AppLink.categrieImage}/${controller.categorieList[i].image}',
-                                    height: 100,
-                                  ),
+                            child:
+                                controller.categorieList[i].image == "default"
+                                    ? const Icon(
+                                        Icons.category_rounded,
+                                        size: 50,
+                                      )
+                                    : SvgPicture.network(
+                                        '${AppLink.categrieImage}/${controller.categorieList[i].image}',
+                                        height: 100,
+                                      ),
                           ),
                           Expanded(
                             flex: 3,
@@ -59,7 +61,9 @@ class CategorieView extends StatelessWidget {
                                 style: Theme.of(context).textTheme.displayLarge,
                               ),
                               subtitle: Text(
-                                '${DateFormat('EEEE, d MMM, yyyy').format(DateTime.parse(controller.categorieList[i].createdAt!))}',
+                                DateFormat('EEEE, d MMM, yyyy').format(
+                                    DateTime.parse(controller
+                                        .categorieList[i].createdAt!)),
                                 style: Theme.of(context).textTheme.displaySmall,
                               ),
                               trailing: IconButton(

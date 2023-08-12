@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 abstract class BaseCheckEmailController extends GetxController {
   // check();
   openVerfication();
+  backTologin();
 }
 
 class CheckEmailController extends BaseCheckEmailController {
@@ -33,8 +34,8 @@ class CheckEmailController extends BaseCheckEmailController {
       var response = await checkEmailData.postData(email.text);
 
       statusRequest = handleData(response);
-      if (statusRequest == StatusRequest.sucess) {
-        if (response['status'] == 'sucess') {
+      if (statusRequest == StatusRequest.success) {
+        if (response['status'] == 'success') {
           Get.offNamed(AppRoute.verfication, arguments: {'email': email.text});
         } else {
           Get.defaultDialog(title: '88'.tr, middleText: '94'.tr);
@@ -45,9 +46,14 @@ class CheckEmailController extends BaseCheckEmailController {
         statusRequest = StatusRequest.serverFailure;
       }
     } else {
-      Get.defaultDialog(title: '88'.tr, middleText: '95'.tr);
+      // Get.defaultDialog(title: '88'.tr, middleText: '95'.tr);
     }
     update();
+  }
+
+  @override
+  backTologin() {
+    Get.offAllNamed(AppRoute.login);
   }
 
   // @override

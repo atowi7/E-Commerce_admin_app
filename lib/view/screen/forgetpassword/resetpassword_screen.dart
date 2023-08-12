@@ -1,5 +1,6 @@
 import 'package:ecommerce_admin_app/controller/forgetpassword/resetpassword_controller.dart';
 import 'package:ecommerce_admin_app/core/class/handlingdataview.dart';
+import 'package:ecommerce_admin_app/core/constant/color.dart';
 import 'package:ecommerce_admin_app/core/function/input_validation.dart';
 import 'package:ecommerce_admin_app/view/widget/auth/custombutton.dart';
 import 'package:ecommerce_admin_app/view/widget/auth/customtextform.dart';
@@ -27,7 +28,12 @@ class ResetPasswordScreen extends StatelessWidget {
             key: controller.formKey,
             child: ListView(
               children: [
-                const Logo(),
+                // const Logo(),
+                const Icon(
+                  Icons.lock_reset_outlined,
+                  size: 50,
+                  color: AppColor.primaryColor,
+                ),
                 CustomTextTitle(title: '27'.tr),
                 // const CustomTextBody(
                 //     title:
@@ -40,7 +46,7 @@ class ResetPasswordScreen extends StatelessWidget {
                   icon: Icons.lock,
                   controller: controller.password,
                   validator: (val) {
-                    return inputValidation('password', val!, 10, 50);
+                    return inputValidation('password', val!, 8, 20);
                   },
                   onTapIcon: controller.showPassword(),
                 ),
@@ -52,15 +58,14 @@ class ResetPasswordScreen extends StatelessWidget {
                   obscureText: controller.isPassHidden,
                   controller: controller.repassword,
                   validator: (val) {
-                    return inputValidation('password', val!, 10, 50);
+                    return inputValidation('password', val!, 8, 20);
                   },
                   onTapIcon: controller.showPassword(),
                 ),
-
                 CustomButton(
                   title: '29'.tr,
                   onPressed: () {
-                    controller.openSucess();
+                    controller.opensuccess();
                   },
                 ),
               ],

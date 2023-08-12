@@ -3,12 +3,15 @@ import 'package:ecommerce_admin_app/core/constant/route.dart';
 import 'package:ecommerce_admin_app/core/function/handle_data.dart';
 import 'package:ecommerce_admin_app/core/service/services.dart';
 import 'package:ecommerce_admin_app/data/datasource/remote/auth/login_data.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 abstract class BaseLoginController extends GetxController {
   login();
+  signInWithGoogle();
   openSignUp();
   openForgerPassword();
 }
@@ -48,15 +51,18 @@ class LoginController extends BaseLoginController {
       var response = await loginData.postData(email.text, pass.text);
 
       statusRequest = handleData(response);
-      if (statusRequest == StatusRequest.sucess) {
-        if (response['status'] == 'sucess') {
+      if (statusRequest == StatusRequest.success) {
+        if (response['status'] == 'success') {
           if (response['data']['admin_approval'] == '1') {
             appServices.sharedPreferences
                 .setString('adminid', response['data']['admin_id']);
+            appServices.sharedPreferences
+                .setString('adminname', response['data']['admin_name']);
+            appServices.sharedPreferences
+                .setString('adminimage', response['data']['admin_image']);
 
             appServices.sharedPreferences.setString('page', 'h');
 
-      
             FirebaseMessaging.instance.subscribeToTopic('admins');
 
             Get.offNamed(AppRoute.homePage);
@@ -67,17 +73,55 @@ class LoginController extends BaseLoginController {
           }
         } else {
           Get.defaultDialog(
-              title: 'ERROR',
-              middleText: 'THERE IS PROBLEM IN EMAIL OR PASSWORD');
+              title: '88'.tr,
+              middleText: '133'.tr);
           //statusRequest = StatusRequest.noDatafailure;
         }
       } else {
-        Get.defaultDialog(title: 'ERROR', middleText: 'SERVER ERROR');
+        Get.defaultDialog(title: '88'.tr, middleText: '89'.tr);
       }
     } else {
-      Get.defaultDialog(title: 'ERROR', middleText: 'VALIDATION ERROR');
+      // Get.defaultDialog(title: 'ERROR', middleText: 'VALIDATION ERROR');
     }
     update();
+  }
+
+  @override
+  signInWithGoogle() async {
+    try {
+      // Trigger the authentication flow
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+      // Obtain the auth details from the request
+      final GoogleSignInAuthentication? googleAuth =
+          await googleUser?.authentication;
+
+      // Create a new credential
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
+      );
+
+      // Once signed in, return the UserCredential
+      final userCredential =
+          await FirebaseAuth.instance.signInWithCredential(credential);
+
+      final admin = userCredential.user;
+
+      appServices.sharedPreferences.setString('adminid', admin!.uid);
+      appServices.sharedPreferences.setString('adminname', admin.displayName!);
+      appServices.sharedPreferences.setString('adminnimage', admin.photoURL!);
+      appServices.sharedPreferences.setString('page', 'h');
+
+      FirebaseMessaging.instance.subscribeToTopic('admins');
+
+      Get.offNamed(AppRoute.homePage);
+
+      // print(user);
+    } catch (e) {
+      Get.defaultDialog(title: '88'.tr, middleText: '89'.tr);
+      statusRequest = StatusRequest.serverFailure;
+    }
   }
 
   @override

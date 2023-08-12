@@ -60,8 +60,8 @@ class UserAddController extends BaseuserAddController {
 
       statusRequest = handleData(response);
 
-      if (StatusRequest.sucess == statusRequest) {
-        if (response['status'] == 'sucess') {
+      if (StatusRequest.success == statusRequest) {
+        if (response['status'] == 'success') {
           Get.offNamed(AppRoute.userView);
           UserViewController controller = Get.find();
           controller.view();

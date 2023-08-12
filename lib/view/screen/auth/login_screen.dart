@@ -1,13 +1,15 @@
 import 'package:ecommerce_admin_app/controller/auth/login_controller.dart';
 import 'package:ecommerce_admin_app/core/class/handlingdataview.dart';
+import 'package:ecommerce_admin_app/core/constant/color.dart';
+import 'package:ecommerce_admin_app/core/constant/imageassets.dart';
 import 'package:ecommerce_admin_app/core/function/exitapp_alert.dart';
 import 'package:ecommerce_admin_app/core/function/input_validation.dart';
 import 'package:ecommerce_admin_app/view/widget/auth/custombutton.dart';
+import 'package:ecommerce_admin_app/view/widget/auth/customsocialmedia.dart';
 import 'package:ecommerce_admin_app/view/widget/auth/customtextauth.dart';
 import 'package:ecommerce_admin_app/view/widget/auth/customtextbody.dart';
 import 'package:ecommerce_admin_app/view/widget/auth/customtextform.dart';
 import 'package:ecommerce_admin_app/view/widget/auth/customtexttitle.dart';
-import 'package:ecommerce_admin_app/view/widget/auth/logo.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -37,10 +39,16 @@ class LoginScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(10),
                   child: ListView(
                     children: [
-                      const Logo(),
-                      const SizedBox(height: 20,),
+                      // const Logo(
+                      //   isLottie: true,
+                      //   image: ImageAssets.profile,
+                      // ),
+                      const Icon(
+                        Icons.person_2_rounded,
+                        size: 200,
+                        color: AppColor.primaryColor,
+                      ),
                       CustomTextTitle(title: '10'.tr),
-                       const SizedBox(height: 20,),
                       CustomTextBody(title: '11'.tr),
                       CustomTextForm(
                         labelText: '7'.tr,
@@ -61,7 +69,7 @@ class LoginScreen extends StatelessWidget {
                           obscureText: controller.isPassHidden,
                           controller: controller.pass,
                           validator: (val) {
-                            return inputValidation('password', val!, 10, 50);
+                            return inputValidation('password', val!, 8, 20);
                           },
                           onTapIcon: controller.showPassword,
                         );
@@ -70,7 +78,12 @@ class LoginScreen extends StatelessWidget {
                           onTap: () {
                             controller.openForgerPassword();
                           },
-                          child: Text('12'.tr, textAlign: TextAlign.end)),
+                          child: Text('12'.tr,
+                              textAlign: TextAlign.start,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .displaySmall!
+                                  .copyWith(color: AppColor.primaryColor))),
                       CustomButton(
                         title: '10'.tr,
                         onPressed: () {
@@ -82,6 +95,18 @@ class LoginScreen extends StatelessWidget {
                         t2: '4'.tr,
                         onTap: () {
                           controller.openSignUp();
+                        },
+                      ),
+                      Text(
+                        '130'.tr,
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.displaySmall,
+                      ),
+                      CustomSocialMedia(
+                        image: ImageAssets.googleLogo,
+                        text: '131'.tr,
+                        onTap: () {
+                          controller.signInWithGoogle();
                         },
                       ),
                     ],

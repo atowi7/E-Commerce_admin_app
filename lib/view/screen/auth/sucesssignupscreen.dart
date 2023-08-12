@@ -4,8 +4,8 @@ import 'package:ecommerce_admin_app/view/widget/auth/custombutton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SucessSignupScreen extends StatelessWidget {
-  const SucessSignupScreen({super.key});
+class SuccessSignupScreen extends StatelessWidget {
+  const SuccessSignupScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,15 +23,15 @@ class SucessSignupScreen extends StatelessWidget {
               color: AppColor.primaryColor,
               size: 350,
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             Text(
               '20'.tr,
               style: Theme.of(context).textTheme.displayLarge,
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             CustomButton(
                 title: '21'.tr,

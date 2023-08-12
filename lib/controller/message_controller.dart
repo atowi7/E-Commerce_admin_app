@@ -36,8 +36,8 @@ class MessageController extends BaseMessageController {
 
     statusRequest = handleData(response);
 
-    if (StatusRequest.sucess == statusRequest) {
-      if (response['status'] == 'sucess') {
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
         List data = response['data'];
         dataList.clear();
         dataList.addAll(data.map((e) => MessageModel.fromJson(e)));
@@ -58,8 +58,8 @@ class MessageController extends BaseMessageController {
 
     statusRequest = handleData(response);
 
-    if (StatusRequest.sucess == statusRequest) {
-      if (response['status'] == 'sucess') {
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
         Get.snackbar('30'.tr, '115'.tr, duration: const Duration(seconds: 2));
         update();
       } else {

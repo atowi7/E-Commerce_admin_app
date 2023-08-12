@@ -1,5 +1,6 @@
 import 'package:ecommerce_admin_app/controller/auth/signup_controller.dart';
 import 'package:ecommerce_admin_app/core/class/handlingdataview.dart';
+import 'package:ecommerce_admin_app/core/constant/color.dart';
 import 'package:ecommerce_admin_app/core/function/exitapp_alert.dart';
 import 'package:ecommerce_admin_app/core/function/input_validation.dart';
 import 'package:ecommerce_admin_app/view/widget/auth/custombutton.dart';
@@ -36,8 +37,12 @@ class SignupScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(10),
                 child: ListView(
                   children: [
+                    const Icon(
+                      Icons.person_2_rounded,
+                      size: 200,
+                      color: AppColor.primaryColor,
+                    ),
                     CustomTextTitle(title: '4'.tr),
-                    const SizedBox(height: 20,),
                     CustomTextBody(title: '5'.tr),
                     CustomTextForm(
                       labelText: '6'.tr,
@@ -46,7 +51,7 @@ class SignupScreen extends StatelessWidget {
                       isNumber: false,
                       controller: controller.userName,
                       validator: (val) {
-                        return inputValidation('username', val!, 10, 50);
+                        return inputValidation('username', val!, 5, 20);
                       },
                       onTapIcon: controller.showPassword(),
                     ),
@@ -60,16 +65,16 @@ class SignupScreen extends StatelessWidget {
                         return inputValidation('email', val!, 10, 50);
                       },
                     ),
-                    CustomTextForm(
-                      labelText: '8'.tr,
-                      hintText: '8'.tr,
-                      icon: Icons.phone,
-                      isNumber: true,
-                      controller: controller.phone,
-                      validator: (val) {
-                        return inputValidation('phone', val!, 10, 50);
-                      },
-                    ),
+                    // CustomTextForm(
+                    //   labelText: '8'.tr,
+                    //   hintText: '8'.tr,
+                    //   icon: Icons.phone,
+                    //   isNumber: true,
+                    //   controller: controller.phone,
+                    //   validator: (val) {
+                    //     return inputValidation('phone', val!, 10, 50);
+                    //   },
+                    // ),
                     CustomTextForm(
                       labelText: '9'.tr,
                       hintText: '9'.tr,
@@ -78,7 +83,7 @@ class SignupScreen extends StatelessWidget {
                       controller: controller.password,
                       obscureText: controller.isPassHidden,
                       validator: (val) {
-                        return inputValidation('password', val!, 10, 50);
+                        return inputValidation('password', val!, 8, 20);
                       },
                     ),
                     CustomButton(

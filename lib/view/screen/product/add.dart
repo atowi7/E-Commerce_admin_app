@@ -60,6 +60,24 @@ class ProductAdd extends StatelessWidget {
                       return inputValidation('', val!, 1, 100);
                     }),
                 CustomTextFormGlobal(
+                    labelText: '137'.tr,
+                    hintText: '138'.tr,
+                    icon: Icons.color_lens_rounded,
+                    isNumber: false,
+                    controller: controller.color,
+                    validator: (val) {
+                      return inputValidation('', val!, 1, 20);
+                    }),
+                CustomTextFormGlobal(
+                    labelText: '139'.tr,
+                    hintText: '140'.tr,
+                    icon: Icons.color_lens_rounded,
+                    isNumber: false,
+                    controller: controller.colorAr,
+                    validator: (val) {
+                      return inputValidation('', val!, 1, 20);
+                    }),
+                CustomTextFormGlobal(
                     labelText: '73'.tr,
                     hintText: '74'.tr,
                     icon: Icons.inventory_2_rounded,
@@ -88,8 +106,16 @@ class ProductAdd extends StatelessWidget {
                     }),
                 CustomDropDownList(
                   context: context,
+                  title: '141'.tr,
+                  dataList: controller.paymentdropDownList,
+                  selectedId: controller.paymentId,
+                  selectedName: controller.paymentName,
+                  icon: Icons.payment_rounded,
+                ),
+                CustomDropDownList(
+                  context: context,
                   title: '79'.tr,
-                  dataList: controller.dropDownList,
+                  dataList: controller.catdropDownList,
                   selectedId: controller.catId,
                   selectedName: controller.catName,
                   icon: Icons.category,

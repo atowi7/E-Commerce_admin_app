@@ -1,4 +1,5 @@
 import 'package:ecommerce_admin_app/core/class/status_request.dart';
+import 'package:ecommerce_admin_app/core/constant/color.dart';
 import 'package:ecommerce_admin_app/core/constant/imageassets.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -16,6 +17,9 @@ class HandlingDataView extends StatelessWidget {
         ? Center(
             child: Lottie.asset(
               ImageAssets.loading,
+              delegates: LottieDelegates(values: [
+                ValueDelegate.color([], value: AppColor.primaryColor),
+              ]),
             ),
           )
         : statusRequest == StatusRequest.serverFailure

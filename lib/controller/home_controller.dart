@@ -31,8 +31,8 @@ class HomeScreenController extends BaseHomeScreenController {
 
     statusRequest = handleData(response);
 
-    if (StatusRequest.sucess == statusRequest) {
-      if (response['status'] == 'sucess') {
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
       } else {
         statusRequest = StatusRequest.noDatafailure;
       }

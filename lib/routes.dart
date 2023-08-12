@@ -7,6 +7,7 @@ import 'package:ecommerce_admin_app/view/screen/auth/sucesssignupscreen.dart';
 import 'package:ecommerce_admin_app/view/screen/categorie/add.dart';
 import 'package:ecommerce_admin_app/view/screen/categorie/edit.dart';
 import 'package:ecommerce_admin_app/view/screen/categorie/view.dart';
+import 'package:ecommerce_admin_app/view/screen/forgetpassword/checkemail_screen.dart';
 import 'package:ecommerce_admin_app/view/screen/home_screen.dart';
 import 'package:ecommerce_admin_app/view/screen/language_screen.dart';
 import 'package:ecommerce_admin_app/view/screen/message_screen.dart';
@@ -46,6 +47,13 @@ List<GetPage<dynamic>>? routes = [
     ],
   ),
   GetPage(
+    name: AppRoute.checkemail,
+    page: () => const CheckemailScreen(),
+    middlewares: [
+      FirstMiddleware(),
+    ],
+  ),
+  GetPage(
     name: AppRoute.signupVerfication,
     page: () => const SignupVerficationScreen(),
     middlewares: [
@@ -54,7 +62,7 @@ List<GetPage<dynamic>>? routes = [
   ),
   GetPage(
     name: AppRoute.successSignup,
-    page: () => const SucessSignupScreen(),
+    page: () => const SuccessSignupScreen(),
     middlewares: [
       FirstMiddleware(),
     ],

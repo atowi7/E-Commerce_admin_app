@@ -53,8 +53,8 @@ class CategorieAddController extends BaseCategorieAddController {
 
       statusRequest = handleData(response);
 
-      if (StatusRequest.sucess == statusRequest) {
-        if (response['status'] == 'sucess') {
+      if (StatusRequest.success == statusRequest) {
+        if (response['status'] == 'success') {
           Get.offNamed(AppRoute.categorieView);
           CategorieViewController controller = Get.find();
           controller.view();

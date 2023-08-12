@@ -29,8 +29,8 @@ class VerifycodeController extends BaseVerifycodeController {
     var response = await verifyCodeData.postData(email!, verifycode);
 
     statusRequest = handleData(response);
-    if (statusRequest == StatusRequest.sucess) {
-      if (response['status'] == 'sucess') {
+    if (statusRequest == StatusRequest.success) {
+      if (response['status'] == 'success') {
         Get.offNamed(AppRoute.resetPassword, arguments: {'email': email});
       } else {
         Get.defaultDialog(title: '88'.tr, middleText: '97'.tr);

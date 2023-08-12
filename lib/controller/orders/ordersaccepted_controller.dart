@@ -36,8 +36,8 @@ class OrdersAcceptedController extends BaseOrdersAcceptedController {
 
     statusRequest = handleData(response);
 
-    if (StatusRequest.sucess == statusRequest) {
-      if (response['status'] == 'sucess') {
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
         List data = response['data'];
         dataList.clear();
         dataList.addAll(data.map((e) => OrderModel.fromJson(e)));
@@ -58,8 +58,8 @@ class OrdersAcceptedController extends BaseOrdersAcceptedController {
 
     statusRequest = handleData(response);
 
-    if (StatusRequest.sucess == statusRequest) {
-      if (response['status'] == 'sucess') {
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
         Get.snackbar('30'.tr, '98'.tr,duration: const Duration(seconds: 2));
         refreshPage();
       } else {

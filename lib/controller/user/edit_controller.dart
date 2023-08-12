@@ -57,18 +57,18 @@ class UserEditController extends BaseuserEditController {
 
       statusRequest = handleData(response);
 
-      if (StatusRequest.sucess == statusRequest) {
-        if (response['status'] == 'sucess') {
+      if (StatusRequest.success == statusRequest) {
+        if (response['status'] == 'success') {
           Get.offNamed(AppRoute.userView);
           UserViewController controller = Get.find();
           controller.view();
-          Get.snackbar('30'.tr, '125'.tr,duration: const Duration(seconds: 2));
+          Get.snackbar('30'.tr, '125'.tr, duration: const Duration(seconds: 2));
         } else {
-          Get.snackbar('30'.tr, '126'.tr,duration: const Duration(seconds: 2));
+          Get.snackbar('30'.tr, '126'.tr, duration: const Duration(seconds: 2));
           statusRequest = StatusRequest.noDatafailure;
         }
       } else {
-        Get.snackbar('88'.tr, '89'.tr,duration: const Duration(seconds: 2));
+        Get.snackbar('88'.tr, '89'.tr, duration: const Duration(seconds: 2));
         statusRequest = StatusRequest.serverFailure;
       }
       update();

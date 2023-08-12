@@ -12,7 +12,12 @@ class OrderArchiveWedget extends GetView<OrdersArchiveController> {
   const OrderArchiveWedget({super.key, required this.orderModel});
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return Container(
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: AppColor.forthColor,
+        borderRadius: BorderRadius.circular(25),
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -29,7 +34,7 @@ class OrderArchiveWedget extends GetView<OrdersArchiveController> {
               ),
             ],
           ),
-          const Divider(color: AppColor.primaryColor),
+          const Divider(color: AppColor.primaryColor, thickness: 2),
           Text(
             '${'47'.tr} : ${orderModel.ordersPrice}',
             style: Theme.of(context).textTheme.displayMedium,
@@ -50,7 +55,7 @@ class OrderArchiveWedget extends GetView<OrdersArchiveController> {
             '${'51'.tr} : ${controller.getStatus(orderModel.ordersStatus!)}',
             style: Theme.of(context).textTheme.displayMedium,
           ),
-          const Divider(color: AppColor.primaryColor),
+          const Divider(color: AppColor.primaryColor, thickness: 2),
           Text('${'52'.tr} : ${orderModel.ordersTotalprice}\$'),
           const Divider(color: AppColor.primaryColor),
           Container(
@@ -69,7 +74,6 @@ class OrderArchiveWedget extends GetView<OrdersArchiveController> {
                   style: Theme.of(context).textTheme.labelLarge,
                 )),
           ),
-          const Divider(color: AppColor.primaryColor),
         ],
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:ecommerce_admin_app/controller/auth/signupverfication_controller.dart';
 import 'package:ecommerce_admin_app/core/class/handlingdataview.dart';
+import 'package:ecommerce_admin_app/core/constant/color.dart';
 import 'package:ecommerce_admin_app/view/widget/auth/customtextbody.dart';
 import 'package:ecommerce_admin_app/view/widget/auth/customtexttitle.dart';
 import 'package:ecommerce_admin_app/view/widget/auth/logo.dart';
@@ -24,15 +25,29 @@ class SignupVerficationScreen extends StatelessWidget {
           statusRequest: controller.statusRequest,
           widget: ListView(
             children: [
-              const Logo(),
-              CustomTextTitle(title: '${'16'.tr} :${controller.email}'),
-              CustomTextBody(title: '17'.tr),
+              // const Logo(),
+              const Icon(
+                Icons.person_2_rounded,
+                size: 200,
+                color: AppColor.primaryColor,
+              ),
+              CustomTextTitle(title: '16'.tr),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
+              ),
+              CustomTextBody(title: '${'17'.tr} in ${controller.email}'),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
+              ),
               OtpTextField(
                 numberOfFields: 6,
                 showFieldAsBox: true,
                 onSubmit: (value) {
-                  controller.openSucess(value);
+                  controller.opensuccess(value);
                 },
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
               ),
               InkWell(
                 onTap: () {
@@ -41,7 +56,10 @@ class SignupVerficationScreen extends StatelessWidget {
                 child: Center(
                     child: Text(
                   '18'.tr,
-                  style: Theme.of(context).textTheme.bodyMedium,
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelLarge!
+                      .copyWith(color: AppColor.primaryColor),
                 )),
               )
             ],

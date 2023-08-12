@@ -35,10 +35,11 @@ class UserView extends StatelessWidget {
                       margin: const EdgeInsets.all(10),
                       color: AppColor.forthColor,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Expanded(
                             flex: 2,
-                            child: controller.userList[i].image == ""
+                            child: controller.userList[i].image == "default"
                                 ? const Icon(
                                     Icons.person_2_rounded,
                                     size: 50,
@@ -56,7 +57,9 @@ class UserView extends StatelessWidget {
                                 style: Theme.of(context).textTheme.displayLarge,
                               ),
                               subtitle: Text(
-                            '${DateFormat('EEEE, d MMM, yyyy').format(DateTime.parse(controller.userList[i].createdAt!))}',
+                                DateFormat('EEEE, d MMM, yyyy').format(
+                                    DateTime.parse(
+                                        controller.userList[i].createdAt!)),
                                 style:
                                     Theme.of(context).textTheme.displayMedium,
                               ),

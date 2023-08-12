@@ -88,7 +88,7 @@ class ProductEditController extends BaseProductEditController {
   edit() async {
     if (formState.currentState!.validate()) {
       if (catId.text.isEmpty) {
-        return Get.snackbar('30'.tr, '132'.tr,
+        return Get.snackbar('30'.tr, '129'.tr,
             duration: const Duration(seconds: 2));
       }
 
@@ -117,8 +117,8 @@ class ProductEditController extends BaseProductEditController {
 
       statusRequest = handleData(response);
 
-      if (StatusRequest.sucess == statusRequest) {
-        if (response['status'] == 'sucess') {
+      if (StatusRequest.success == statusRequest) {
+        if (response['status'] == 'success') {
           Get.offNamed(AppRoute.productView);
           ProductViewController controller = Get.find();
           Get.snackbar('88'.tr, '113'.tr, duration: const Duration(seconds: 2));
@@ -147,8 +147,8 @@ class ProductEditController extends BaseProductEditController {
 
     statusRequest = handleData(response);
 
-    if (StatusRequest.sucess == statusRequest) {
-      if (response['status'] == 'sucess') {
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
         List data = response['data'];
         dataList.clear();
         dataList.addAll(data.map((e) => CategorieModel.fromJson(e)));

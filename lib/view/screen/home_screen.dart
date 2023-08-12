@@ -23,7 +23,7 @@ class HomeScreen extends StatelessWidget {
             shrinkWrap: true,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              childAspectRatio: 1.7,
+              childAspectRatio: 1.1,
             ),
             children: [
               AdminCard(

@@ -11,7 +11,12 @@ class OrderPendingWedget extends GetView<OrdersPendingController> {
   const OrderPendingWedget({super.key, required this.orderModel});
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return Container(
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: AppColor.forthColor,
+        borderRadius: BorderRadius.circular(25),
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -28,7 +33,7 @@ class OrderPendingWedget extends GetView<OrdersPendingController> {
               ),
             ],
           ),
-          const Divider(color: AppColor.primaryColor),
+          const Divider(color: AppColor.primaryColor, thickness: 2),
           Text(
             '${'47'.tr} : ${orderModel.ordersPrice}',
             style: Theme.of(context).textTheme.displayMedium,
@@ -42,12 +47,12 @@ class OrderPendingWedget extends GetView<OrdersPendingController> {
             '${'50'.tr} : ${controller.getDeliveryType(orderModel.ordersType!)}',
             style: Theme.of(context).textTheme.displayMedium,
           ),
-          const Divider(color: AppColor.primaryColor),
+          const Divider(color: AppColor.primaryColor, thickness: 2),
           Text(
             '${'52'.tr} : ${orderModel.ordersTotalprice}\$',
             style: Theme.of(context).textTheme.displayMedium,
           ),
-          const Divider(color: AppColor.primaryColor),
+          const Divider(color: AppColor.primaryColor, thickness: 2),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -73,7 +78,6 @@ class OrderPendingWedget extends GetView<OrdersPendingController> {
               ),
             ],
           ),
-          const Divider(color: AppColor.primaryColor),
         ],
       ),
     );

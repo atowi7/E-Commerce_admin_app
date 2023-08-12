@@ -37,14 +37,12 @@ class ProductView extends StatelessWidget {
                       margin: const EdgeInsets.all(10),
                       color: AppColor.forthColor,
                       shadowColor: AppColor.secondaryColor,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Container(
-                            height: Get.size.height * 0.2,
-                            width: Get.size.height * 0.2,
-                            margin: const EdgeInsets.symmetric(vertical: 5),
-                            child: controller.productList[i].image == ""
+                          Expanded(
+                            flex: 2,
+                            child: controller.productList[i].image == "default"
                                 ? const Icon(
                                     Icons.inventory_2_rounded,
                                     size: 50,
@@ -55,37 +53,53 @@ class ProductView extends StatelessWidget {
                                     height: 100,
                                   ),
                           ),
-                          Text(
-                            '${controller.productList[i].name}',
-                            style: Theme.of(context).textTheme.displayLarge,
-                          ),
-                          Text(
-                            '${controller.productList[i].cName}',
-                            style: Theme.of(context).textTheme.displayMedium,
-                          ),
-                          Text(
-                            '${DateFormat('EEEE, d MMM, yyyy').format(DateTime.parse(controller.productList[i].createdAt!))}',
-                            style: Theme.of(context).textTheme.displayMedium,
-                          ),
-                          IconButton(
-                            icon: const Icon(
-                              Icons.delete_forever_rounded,
-                              color: AppColor.primaryColor,
-                              size: 40,
-                            ),
-                            onPressed: () {
-                              Get.defaultDialog(
-                                title: '30'.tr,
-                                middleText: '31'.tr,
-                                onConfirm: () {
-                                  controller.delete(
-                                      controller.productList[i].id!,
-                                      controller.productList[i].image!);
-                                  Get.back();
+                          Expanded(
+                            flex: 3,
+                            child: ListTile(
+                              title: Column(
+                                children: [
+                                  Text(
+                                    '${controller.productList[i].name}',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .displayLarge,
+                                  ),
+                                  Text(
+                                    '${controller.productList[i].cName}',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .displayMedium,
+                                  ),
+                                ],
+                              ),
+                              subtitle: Text(
+                                DateFormat('EEEE, d MMM, yyyy').format(
+                                    DateTime.parse(
+                                        controller.productList[i].createdAt!)),
+                                style:
+                                    Theme.of(context).textTheme.displayMedium,
+                              ),
+                              trailing: IconButton(
+                                icon: const Icon(
+                                  Icons.delete_forever_rounded,
+                                  color: AppColor.primaryColor,
+                                  size: 40,
+                                ),
+                                onPressed: () {
+                                  Get.defaultDialog(
+                                    title: '30'.tr,
+                                    middleText: '31'.tr,
+                                    onConfirm: () {
+                                      controller.delete(
+                                          controller.productList[i].id!,
+                                          controller.productList[i].image!);
+                                      Get.back();
+                                    },
+                                    onCancel: () {},
+                                  );
                                 },
-                                onCancel: () {},
-                              );
-                            },
+                              ),
+                            ),
                           ),
                         ],
                       ),

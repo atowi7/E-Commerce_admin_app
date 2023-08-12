@@ -34,17 +34,24 @@ class ProductAddController extends BaseProductAddController {
   late TextEditingController desc;
   late TextEditingController descAr;
 
+  late TextEditingController color;
+  late TextEditingController colorAr;
+
   File? imageFile;
 
   late TextEditingController price;
   late TextEditingController discount;
+
+  late TextEditingController paymentId;
+  late TextEditingController paymentName;
 
   late TextEditingController count;
 
   late TextEditingController catId;
   late TextEditingController catName;
 
-  List<SelectedListItem> dropDownList = [];
+  List<SelectedListItem> catdropDownList = [];
+  List<SelectedListItem> paymentdropDownList = [];
 
   StatusRequest statusRequest = StatusRequest.none;
 
@@ -54,12 +61,22 @@ class ProductAddController extends BaseProductAddController {
     nameAr = TextEditingController();
     desc = TextEditingController();
     descAr = TextEditingController();
+    color = TextEditingController();
+    colorAr = TextEditingController();
     count = TextEditingController();
     price = TextEditingController();
     discount = TextEditingController();
+    paymentId = TextEditingController();
+    paymentName = TextEditingController();
 
     catId = TextEditingController();
     catName = TextEditingController();
+
+    paymentdropDownList = [
+      SelectedListItem(value: '0', name: 'Cash'),
+      SelectedListItem(value: '1', name: 'Card'),
+      SelectedListItem(value: '2', name: 'Both'),
+    ];
 
     getCategories();
 
@@ -70,7 +87,7 @@ class ProductAddController extends BaseProductAddController {
   add() async {
     if (formState.currentState!.validate()) {
       if (catId.text.isEmpty) {
-        return Get.snackbar('30'.tr, '132'.tr,
+        return Get.snackbar('30'.tr, '129'.tr,
             duration: const Duration(seconds: 2));
       }
 
@@ -86,18 +103,19 @@ class ProductAddController extends BaseProductAddController {
         'namear': nameAr.text,
         'desc': desc.text,
         'descar': descAr.text,
-        'price': price.text,
-        'discount': discount.text,
-        'count': count.text,
-        'date': DateTime.now().toString(),
-        'catid': catId.text,
+        'price': double.parse(price.text),
+        'discount': int.parse(discount.text),
+        'payment': int.parse(paymentId.text),
+        'count': int.parse(count.text),
+        'date': DateTime.now().toIso8601String(),
+        'catid': int.parse(catId.text),
       };
       var response = await productDate.addData(data, imageFile!);
 
       statusRequest = handleData(response);
 
-      if (StatusRequest.sucess == statusRequest) {
-        if (response['status'] == 'sucess') {
+      if (StatusRequest.success == statusRequest) {
+        if (response['status'] == 'success') {
           Get.offNamed(AppRoute.productView);
           ProductViewController controller = Get.find();
           controller.view();
@@ -126,14 +144,14 @@ class ProductAddController extends BaseProductAddController {
 
     statusRequest = handleData(response);
 
-    if (StatusRequest.sucess == statusRequest) {
-      if (response['status'] == 'sucess') {
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
         List data = response['data'];
         dataList.clear();
         dataList.addAll(data.map((e) => CategorieModel.fromJson(e)));
 
         for (var i = 0; i < dataList.length; i++) {
-          dropDownList.add(
+          catdropDownList.add(
               SelectedListItem(value: dataList[i].id, name: dataList[i].name!));
         }
       } else {

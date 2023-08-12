@@ -34,8 +34,8 @@ class ProductViewController extends BaseProductViewController {
 
     statusRequest = handleData(response);
 
-    if (StatusRequest.sucess == statusRequest) {
-      if (response['status'] == 'sucess') {
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
         List data = response['data'];
         productList.clear();
         productList.addAll(data.map((e) => ProductModel.fromJson(e)));
@@ -74,13 +74,13 @@ class ProductViewController extends BaseProductViewController {
 
     statusRequest = handleData(response);
 
-    if (StatusRequest.sucess == statusRequest) {
-      if (response['status'] == 'sucess') {
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
         productList.removeWhere((element) => element.id == id);
         update();
-        Get.snackbar('NOTFY', '130'.tr, duration: const Duration(seconds: 2));
+        Get.snackbar('NOTFY', '127'.tr, duration: const Duration(seconds: 2));
       } else {
-        Get.snackbar('NOTFY', '131'.tr, duration: const Duration(seconds: 2));
+        Get.snackbar('NOTFY', '128'.tr, duration: const Duration(seconds: 2));
       }
     } else {
       statusRequest = StatusRequest.serverFailure;

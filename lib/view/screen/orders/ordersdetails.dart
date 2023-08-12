@@ -30,26 +30,17 @@ class OrderDetailsScreen extends StatelessWidget {
                         Text(
                           '40'.tr,
                           textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            color: AppColor.primaryColor,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: Theme.of(context).textTheme.displayLarge,
                         ),
                         Text(
                           '41'.tr,
                           textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            color: AppColor.primaryColor,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: Theme.of(context).textTheme.displayLarge,
                         ),
                         Text(
                           '42'.tr,
                           textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            color: AppColor.primaryColor,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: Theme.of(context).textTheme.displayLarge,
                         ),
                       ]),
                       ...List.generate(
@@ -58,14 +49,17 @@ class OrderDetailsScreen extends StatelessWidget {
                           Text(
                             '${controller.dataList[index].proName}',
                             textAlign: TextAlign.center,
+                            style: Theme.of(context).textTheme.displayMedium,
                           ),
                           Text(
                             '${controller.dataList[index].prosCount}',
                             textAlign: TextAlign.center,
+                            style: Theme.of(context).textTheme.displayMedium,
                           ),
                           Text(
                             '${controller.dataList[index].prosPrice}',
                             textAlign: TextAlign.center,
+                            style: Theme.of(context).textTheme.displayMedium,
                           ),
                         ]),
                       ),
@@ -77,13 +71,17 @@ class OrderDetailsScreen extends StatelessWidget {
                 child: Container(
                   padding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                  child: Card(
+                  child: Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        color: AppColor.secondaryColor,
+                        borderRadius: BorderRadius.circular(25)),
                     child: Text(
-                      '${'43'.tr} ${controller.orderModel.ordersTotalprice}\$',
-                      style: const TextStyle(
-                        color: AppColor.primaryColor,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      '${'43'.tr} : ${controller.orderModel.ordersTotalprice}\$',
+                      style: Theme.of(context)
+                          .textTheme
+                          .displayLarge!
+                          .copyWith(color: AppColor.primaryColor),
                     ),
                   ),
                 ),
@@ -93,16 +91,26 @@ class OrderDetailsScreen extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   child: Card(
-                    child: ListTile(
-                      title: Text(
-                        '44'.tr,
-                        style: Theme.of(context)
-                            .textTheme
-                            .displayLarge!
-                            .copyWith(color: AppColor.primaryColor),
-                      ),
-                      subtitle: Text(
-                          '${controller.orderModel.addressCity} ${controller.orderModel.addressStreet}'),
+                    child: Column(
+                      children: [
+                        Text(
+                          '44'.tr,
+                          style: Theme.of(context)
+                              .textTheme
+                              .displayLarge!
+                              .copyWith(color: AppColor.primaryColor),
+                        ),
+                        ListTile(
+                          title: Text(
+                            '${controller.orderModel.addressName}',
+                            style: Theme.of(context).textTheme.displayMedium,
+                          ),
+                          subtitle: Text(
+                            '${controller.orderModel.addressCity} ${controller.orderModel.addressStreet}',
+                            style: Theme.of(context).textTheme.displaySmall,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),

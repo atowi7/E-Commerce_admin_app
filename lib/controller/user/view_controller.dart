@@ -34,8 +34,8 @@ class UserViewController extends BaseUserViewController {
 
     statusRequest = handleData(response);
 
-    if (StatusRequest.sucess == statusRequest) {
-      if (response['status'] == 'sucess') {
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
         List data = response['data'];
         userList.clear();
         userList.addAll(data.map((e) => UserModel.fromJson(e)));
@@ -73,8 +73,8 @@ class UserViewController extends BaseUserViewController {
 
     statusRequest = handleData(response);
 
-    if (StatusRequest.sucess == statusRequest) {
-      if (response['status'] == 'sucess') {
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
         userList.removeWhere((element) => element.id == id);
         update();
         Get.snackbar('30'.tr, '118'.tr,duration: const Duration(seconds: 2));

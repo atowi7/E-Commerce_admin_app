@@ -34,8 +34,8 @@ class CategorieViewController extends BaseCategorieViewController {
 
     statusRequest = handleData(response);
 
-    if (StatusRequest.sucess == statusRequest) {
-      if (response['status'] == 'sucess') {
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
         List data = response['data'];
         categorieList.clear();
         categorieList.addAll(data.map((e) => CategorieModel.fromJson(e)));
@@ -74,8 +74,8 @@ class CategorieViewController extends BaseCategorieViewController {
 
     statusRequest = handleData(response);
 
-    if (StatusRequest.sucess == statusRequest) {
-      if (response['status'] == 'sucess') {
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
         categorieList.removeWhere((element) => element.id == id);
         update();
         Get.snackbar('30'.tr, '92'.tr,duration: const Duration(seconds: 2));

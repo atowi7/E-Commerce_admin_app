@@ -1,5 +1,4 @@
 import 'package:ecommerce_admin_app/core/constant/color.dart';
-import 'package:ecommerce_admin_app/core/constant/imageassets.dart';
 import 'package:flutter/material.dart';
 
 class AdminCard extends StatelessWidget {

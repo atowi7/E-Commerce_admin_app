@@ -55,7 +55,7 @@ class Crud {
     print(response.body);
     if (response.statusCode == 200 || response.statusCode == 201) {
       // Map res = json.decode(response.body);
-      return const Right({'status': 'sucess'});
+      return const Right({'status': 'success'});
     } else {
       return const Left(StatusRequest.serverFailure);
     }
